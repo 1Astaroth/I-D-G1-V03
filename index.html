@@ -1,16 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>FABLAB Projects</title>
+<title>Proyecto - Mesa de Centro Ensamblable</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 <style>
 
-/* RESET */
+:root{
+--verde:#10b981;
+--verde-oscuro:#047857;
+--azul:#6bcee7;
+--azul-oscuro:#7f9fd1;
+--texto:#263445;
+--texto-suave:#64748b;
+--blanco:#ffffff;
+--fondo:#f3f8fc;
+--borde:#dce7f0;
+--rojo:#ef4444;
+--sombra:0 10px 30px rgba(15,23,42,0.10);
+--sombra-fuerte:0 18px 42px rgba(15,23,42,0.16);
+}
 
 *{
 margin:0;
@@ -18,363 +33,598 @@ padding:0;
 box-sizing:border-box;
 }
 
-/* BODY */
-
-body{
-font-family:'Segoe UI',sans-serif;
-background:#f4f9ff;
-color:#333;
-line-height:1.8;
+html{
+scroll-behavior:smooth;
 }
 
-/* NAVBAR */
+body{
+font-family:'Segoe UI',Arial,sans-serif;
+background:
+radial-gradient(circle at top left,rgba(107,206,231,0.20),transparent 32%),
+linear-gradient(180deg,#f8fcff 0%,#edf5fa 100%);
+color:var(--texto);
+line-height:1.8;
+min-height:100vh;
+}
+
+img,
+video{
+display:block;
+max-width:100%;
+}
+
+/* BARRA DE NAVEGACIÓN */
 
 .navbar{
-background:linear-gradient(135deg,#6bcee7,#8baadb);
-padding:20px 50px;
+background:linear-gradient(135deg,var(--azul),var(--azul-oscuro));
+padding:18px 50px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-box-shadow:0 5px 20px rgba(0,0,0,0.15);
-position:relative;
-z-index:1000;
+gap:25px;
+box-shadow:0 8px 25px rgba(30,64,175,0.18);
+position:sticky;
+top:0;
+z-index:999;
+border-bottom:4px solid rgba(16,185,129,0.65);
 }
 
 .logo{
+display:flex;
+align-items:center;
+gap:12px;
 color:white;
 font-size:2rem;
-font-weight:bold;
+font-weight:800;
 letter-spacing:2px;
+text-shadow:0 2px 8px rgba(0,0,0,0.12);
+}
+
+.logo::before{
+content:"✦";
+width:38px;
+height:38px;
+display:grid;
+place-items:center;
+background:rgba(255,255,255,0.20);
+border-radius:12px;
+font-size:1.1rem;
 }
 
 .nav-links{
 display:flex;
-gap:15px;
-align-items:center;
+gap:8px;
+flex-wrap:wrap;
+justify-content:flex-end;
 }
-
-/* LINKS */
 
 .nav-links a{
 color:white;
 text-decoration:none;
-padding:10px 18px;
-border-radius:10px;
-font-weight:600;
+padding:10px 16px;
+border-radius:11px;
+font-weight:700;
 transition:0.3s;
 }
 
-.nav-links a:hover{
-background:rgba(255,255,255,0.2);
+.nav-links a:hover,
+.nav-links a.active{
+background:rgba(255,255,255,0.22);
+transform:translateY(-2px);
+box-shadow:0 7px 18px rgba(30,64,175,0.15);
 }
 
-/* DROPDOWN ASSIGNMENTS */
+/* ENCABEZADO */
 
-.dropdown{
+#header{
 position:relative;
-display:inline-block;
-}
-
-.dropdown > a{
-color:white;
-text-decoration:none;
-padding:10px 18px;
-border-radius:10px;
-font-weight:600;
-transition:0.3s;
-display:block;
-}
-
-.dropdown > a:hover{
-background:rgba(255,255,255,0.2);
-}
-
-.dropdown-content{
-display:none;
-position:absolute;
-top:100%;
-left:0;
-background:white;
-min-width:240px;
-border-radius:12px;
 overflow:hidden;
-box-shadow:0 8px 20px rgba(0,0,0,0.15);
-z-index:1000;
-}
-
-.dropdown-content a{
-display:block;
-padding:12px 15px;
-text-decoration:none;
-color:#333 !important;
-background:white;
-font-weight:600;
-}
-
-.dropdown-content a:hover{
-background:#f4f9ff;
-color:#059669 !important;
-}
-
-.dropdown:hover .dropdown-content{
-display:block;
-}
-
-/* HERO */
-
-.hero{
-max-width:1300px;
-margin:auto;
-padding:60px 30px;
-}
-
-.hero-box{
-background:white;
-padding:50px;
-border-radius:20px;
-box-shadow:0 10px 30px rgba(0,0,0,0.1);
+background:linear-gradient(135deg,#10b981 0%,#047857 100%);
+color:white;
+padding:5rem 1.5rem 6rem;
 text-align:center;
+box-shadow:0 10px 30px rgba(4,120,87,0.20);
 }
 
-.hero-header{
-width:80%;
+#header::before,
+#header::after{
+content:"";
+position:absolute;
+border-radius:50%;
+background:rgba(255,255,255,0.10);
+}
+
+#header::before{
+width:280px;
+height:280px;
+top:-130px;
+left:-80px;
+}
+
+#header::after{
+width:360px;
+height:360px;
+right:-140px;
+bottom:-220px;
+}
+
+.header-content{
+position:relative;
+z-index:2;
+max-width:980px;
+margin:auto;
+}
+
+.header-content h1{
+font-size:clamp(2rem,5vw,3.6rem);
+font-weight:800;
+line-height:1.2;
+letter-spacing:-0.03em;
+text-shadow:0 4px 18px rgba(0,0,0,0.16);
+}
+
+.header-content h1::after{
+content:"Diseño digital · Corte láser · Ensamblaje";
+display:block;
+font-size:clamp(0.95rem,2vw,1.15rem);
+font-weight:500;
+letter-spacing:0.08em;
+margin-top:18px;
+opacity:0.92;
+}
+
+/* CONTENEDOR */
+
+.main-container{
+max-width:1320px;
+margin:-42px auto 0;
+padding:0 2rem 3rem;
+position:relative;
+z-index:5;
+}
+
+.content{
+background:rgba(255,255,255,0.97);
+padding:clamp(1.25rem,4vw,3rem);
+border-radius:24px;
+box-shadow:var(--sombra-fuerte);
+border:1px solid rgba(255,255,255,0.75);
+}
+
+/* INTRODUCCIÓN */
+
+.intro-box{
+background:linear-gradient(145deg,#ecfdf5,#f8fffc);
+padding:clamp(1.4rem,4vw,2.3rem);
+border-left:7px solid var(--verde);
+border-radius:16px;
+margin-bottom:2rem;
+box-shadow:var(--sombra);
+}
+
+.intro-box h2{
+color:var(--verde-oscuro);
+margin-bottom:12px;
+font-size:1.65rem;
+}
+
+/* ENCABEZADOS DE SECCIONES */
+
+.etapa-header{
+position:relative;
+overflow:hidden;
+background:linear-gradient(135deg,var(--verde),var(--verde-oscuro));
+color:white;
+padding:1.15rem 1.4rem;
+border-radius:16px;
+margin:3rem 0 1.5rem;
 text-align:center;
-padding:40px 30px;
-background:#ecfdf5;
-margin:auto;
-border-radius:20px;
+box-shadow:0 11px 24px rgba(16,185,129,0.22);
 }
 
-.hero-header img{
-width:220px;
-max-width:100%;
-border-radius:20px;
-box-shadow:0 10px 30px rgba(0,0,0,0.15);
-margin-bottom:20px;
+.etapa-header::after{
+content:"";
+position:absolute;
+width:130px;
+height:130px;
+right:-35px;
+bottom:-75px;
+border-radius:50%;
+background:rgba(255,255,255,0.10);
 }
 
-.hero-box h1{
-font-size:3rem;
-color:#059669;
-margin-bottom:20px;
+.etapa-header h2{
+position:relative;
+z-index:2;
+font-size:clamp(1.25rem,3vw,1.65rem);
 }
 
-.hero-box p{
-font-size:1.1rem;
-max-width:850px;
-margin:auto;
-}
+/* TARJETAS */
 
-/* SECTIONS */
-
-.sections{
-margin-top:50px;
+.cards{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:25px;
-align-items:stretch;
+grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));
+gap:24px;
 }
 
 .card{
-background:white;
-padding:30px;
-border-radius:18px;
-box-shadow:0 8px 25px rgba(0,0,0,0.1);
-transition:0.3s;
-text-align:center;
-display:flex;
-flex-direction:column;
-justify-content:space-between;
-border:1px solid rgba(5,150,105,0.08);
+position:relative;
+overflow:hidden;
+background:linear-gradient(180deg,#ffffff 0%,#fbfdff 100%);
+padding:26px;
+border-radius:17px;
+border:1px solid var(--borde);
+box-shadow:var(--sombra);
+transition:transform 0.3s ease,box-shadow 0.3s ease,border-color 0.3s ease;
+}
+
+.card::before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:5px;
+background:linear-gradient(90deg,var(--verde),var(--azul));
 }
 
 .card:hover{
-transform:translateY(-8px);
-box-shadow:0 14px 35px rgba(0,0,0,0.15);
+transform:translateY(-7px);
+box-shadow:var(--sombra-fuerte);
+border-color:rgba(16,185,129,0.38);
 }
 
-.card h2{
-color:#059669;
-margin-bottom:15px;
-font-size:1.6rem;
+.card h3{
+color:var(--verde-oscuro);
+margin-bottom:12px;
+font-size:1.35rem;
+line-height:1.3;
 }
 
-.card p{
-margin-bottom:25px;
-text-align:justify;
-font-size:1rem;
+.card p,
+.intro-box p,
+.highlight-text{
+color:#405064;
 }
 
-/* FINAL PROJECT CARD */
+/* IMÁGENES */
 
-.final-project-card{
-background:linear-gradient(145deg,#ffffff,#ecfdf5);
-border:2px solid #10b981;
+.card > img{
+width:100%;
+height:320px;
+object-fit:cover;
+margin-top:20px;
+border-radius:13px;
+cursor:pointer;
+transition:0.3s;
+box-shadow:0 9px 24px rgba(15,23,42,0.13);
+}
+
+.card > img:hover{
+transform:scale(1.025);
+filter:saturate(1.06) contrast(1.03);
+box-shadow:0 14px 30px rgba(15,23,42,0.19);
+}
+
+.multi-img{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(145px,1fr));
+gap:12px;
+margin-top:18px;
+}
+
+.multi-img img{
+width:100%;
+height:220px;
+object-fit:cover;
+border-radius:12px;
+cursor:pointer;
+transition:0.3s;
+box-shadow:0 7px 18px rgba(15,23,42,0.12);
+}
+
+.multi-img img:hover{
+transform:translateY(-4px) scale(1.02);
+filter:saturate(1.06);
+box-shadow:0 12px 26px rgba(15,23,42,0.18);
+}
+
+/* LISTAS */
+
+ul{
+list-style:none;
+padding:0;
+margin-top:18px;
+display:grid;
+gap:10px;
+}
+
+ul li{
 position:relative;
+padding:10px 14px 10px 44px;
+background:#f0fdf7;
+border:1px solid #ccefe0;
+border-radius:11px;
+}
+
+ul li::before{
+content:"✓";
+position:absolute;
+left:14px;
+top:10px;
+width:22px;
+height:22px;
+border-radius:50%;
+background:var(--verde);
+color:white;
+display:grid;
+place-items:center;
+font-size:0.8rem;
+font-weight:800;
+}
+
+/* BOTONES */
+
+.btn-download{
+display:inline-flex;
+align-items:center;
+gap:9px;
+margin-top:16px;
+padding:11px 18px;
+background:linear-gradient(135deg,var(--verde),var(--verde-oscuro));
+color:white;
+border-radius:10px;
+text-decoration:none;
+font-weight:800;
+box-shadow:0 8px 18px rgba(16,185,129,0.23);
+transition:0.3s;
+}
+
+.btn-download:hover{
+transform:translateY(-2px);
+box-shadow:0 12px 25px rgba(16,185,129,0.31);
+}
+
+/* VIDEO */
+
+video{
+width:100%;
+border-radius:13px;
+margin-top:18px;
+background:#0f172a;
+box-shadow:0 13px 30px rgba(15,23,42,0.18);
+}
+
+/* CONCLUSIÓN */
+
+.highlight-text{
+background:linear-gradient(145deg,#ecfdf5,#f8fffc);
+padding:2rem;
+border-left:7px solid var(--verde);
+margin-top:3rem;
+border-radius:16px;
+box-shadow:var(--sombra);
+}
+
+.highlight-text strong{
+color:var(--verde-oscuro);
+font-size:1.3rem;
+}
+
+/* TABLAS */
+
+.table-container{
+width:100%;
+overflow-x:auto;
+border-radius:14px;
+box-shadow:var(--sombra);
+}
+
+table{
+width:100%;
+border-collapse:separate !important;
+border-spacing:0;
+background:white;
+border:1px solid var(--borde) !important;
+border-radius:14px;
 overflow:hidden;
 }
 
-.final-project-card::before{
-content:"FINAL PROJECT";
-position:absolute;
-top:15px;
-right:-42px;
-background:#10b981;
-color:white;
-padding:6px 45px;
-font-size:0.75rem;
-font-weight:bold;
-transform:rotate(45deg);
-letter-spacing:1px;
+table th,
+table td{
+padding:14px 12px !important;
+border:0 !important;
+border-bottom:1px solid var(--borde) !important;
+border-right:1px solid var(--borde) !important;
 }
 
-.final-project-card h2{
-color:#047857;
+table th:last-child,
+table td:last-child{
+border-right:0 !important;
 }
 
-/* BUTTONS */
+table tr:last-child td{
+border-bottom:0 !important;
+}
 
-.btn{
-display:inline-block;
-padding:12px 20px;
-background:#10b981;
-color:white;
-text-decoration:none;
-border-radius:10px;
-font-weight:bold;
-transition:0.3s;
-border:none;
+table tr:nth-child(even) td{
+background:#f8fbfd;
+}
+
+table tr:hover td{
+background:#eefaf5;
+}
+
+input[type="radio"],
+input[type="checkbox"]{
+width:20px;
+height:20px;
+accent-color:var(--verde);
 cursor:pointer;
 }
 
-.btn:hover{
-background:#059669;
-transform:scale(1.03);
+input[type="text"]{
+width:100%;
+padding:15px 16px;
+font-size:1.05rem;
+border-radius:12px;
+border:2px solid #b9e6d5;
+outline:none;
+background:#fbfffd;
+transition:0.3s;
 }
 
-.card-buttons{
-display:flex;
-flex-direction:column;
-gap:12px;
-margin-top:auto;
+input[type="text"]:focus{
+border-color:var(--verde);
+box-shadow:0 0 0 4px rgba(16,185,129,0.12);
 }
 
-/* FOOTER */
+/* MODAL */
 
-.footer{
-background:linear-gradient(135deg,#6bcee7,#8baadb);
+.modal{
+display:none;
+position:fixed;
+z-index:2000;
+padding:50px 20px;
+left:0;
+top:0;
+width:100%;
+height:100%;
+overflow:auto;
+background:rgba(2,6,23,0.93);
+backdrop-filter:blur(5px);
+}
+
+.modal-content{
+margin:auto;
+display:block;
+width:min(92%,1100px);
+max-height:86vh;
+object-fit:contain;
+border-radius:15px;
+animation:zoom 0.3s;
+box-shadow:0 24px 70px rgba(0,0,0,0.45);
+}
+
+@keyframes zoom{
+
+from{
+transform:scale(0.82);
+opacity:0;
+}
+
+to{
+transform:scale(1);
+opacity:1;
+}
+
+}
+
+.close{
+position:fixed;
+top:18px;
+right:30px;
 color:white;
-text-align:center;
-padding:25px 20px;
-margin-top:20px;
+font-size:42px;
+font-weight:bold;
+cursor:pointer;
+line-height:1;
+transition:0.25s;
 }
 
-.footer p{
-margin:0;
+.close:hover{
+color:#6ee7b7;
+transform:rotate(90deg);
+}
+
+/* PIE DE PÁGINA */
+
+.site-footer{
+text-align:center;
+padding:28px 20px 36px;
+color:var(--texto-suave);
 font-size:0.95rem;
 }
 
-/* RESPONSIVE DESIGN */
+/* DISEÑO RESPONSIVO */
 
-@media(max-width:1000px){
+@media(max-width:900px){
 
 .navbar{
-padding:20px 25px;
+flex-direction:column;
+justify-content:center;
+padding:18px 20px;
 }
 
 .nav-links{
-gap:8px;
+justify-content:center;
 }
 
-.nav-links a,
-.dropdown > a{
-padding:9px 12px;
-}
-
-.hero-header{
-width:95%;
+.main-container{
+margin:-25px auto 0;
+padding:0 1rem 2rem;
 }
 
 }
 
 @media(max-width:768px){
 
-.navbar{
-flex-direction:column;
-gap:20px;
-padding:20px;
+.logo{
+font-size:1.7rem;
 }
 
-.nav-links{
-flex-wrap:wrap;
-justify-content:center;
+.nav-links a{
+padding:8px 11px;
+font-size:0.92rem;
 }
 
-.dropdown-content{
-left:50%;
-transform:translateX(-50%);
+#header{
+padding:3.2rem 1rem 4.5rem;
 }
 
-.hero{
-padding:35px 15px;
-}
-
-.hero-box{
-padding:25px 18px;
-}
-
-.hero-header{
-width:100%;
-padding:30px 20px;
-}
-
-.hero-box h1{
-font-size:2rem;
-}
-
-.hero-box p{
-font-size:1rem;
-}
-
-.sections{
-grid-template-columns:1fr;
+.content{
+padding:1rem;
 }
 
 .card{
-padding:25px;
+padding:20px;
+}
+
+.card > img{
+height:250px;
+}
+
+.multi-img{
+grid-template-columns:repeat(2,1fr);
+}
+
+.multi-img img{
+height:170px;
 }
 
 }
 
 @media(max-width:480px){
 
-.logo{
-font-size:1.7rem;
-}
-
 .nav-links{
-flex-direction:column;
-width:100%;
+gap:4px;
 }
 
-.nav-links > a,
-.dropdown,
-.dropdown > a{
-width:100%;
-text-align:center;
+.nav-links a{
+font-size:0.84rem;
+padding:7px 9px;
 }
 
-.dropdown-content{
-position:relative;
-top:5px;
-width:100%;
-transform:none;
-left:0;
-margin-bottom:10px;
+.multi-img{
+grid-template-columns:1fr;
 }
 
-.hero-box h1{
-font-size:1.7rem;
+.multi-img img{
+height:230px;
+}
+
+.etapa-header{
+margin-top:2.2rem;
 }
 
 }
@@ -385,35 +635,27 @@ font-size:1.7rem;
 
 <body>
 
+<!-- BARRA DE NAVEGACIÓN -->
+
 <nav class="navbar">
 
 <div class="logo">
-FABLAB
+
+<span>FABLAB</span>
+
 </div>
 
 <div class="nav-links">
 
 <a href="index.html">Home</a>
 
-<div class="dropdown">
+<a href="asigment1.html">Assignments</a>
 
-<a href="#">Assignments ▼</a>
+<a href="Practice/p1.html">Practices</a>
 
-<div class="dropdown-content">
+<a href="EXAMEN_INTERCICLO.html" class="active">Interciclo</a>
 
-<a href="asigment1.html">📄 Assignment 1</a>
-
-<a href="asigment2.html">🎰 Assignment 2</a>
-
-</div>
-
-</div>
-
-<a href="Practice/p1.html">Prácticas</a>
-
-<a href="EXAMEN_INTERCICLO.html">Exámen Interciclo</a>
-
-<a href="FINAL_PROJECT.html">Final Project</a>
+<a href="Final_project.html">Final Project</a>
 
 <a href="aboutus.html">About Us</a>
 
@@ -421,177 +663,899 @@ FABLAB
 
 </nav>
 
-<!-- HERO -->
+<!-- ENCABEZADO -->
 
-<section class="hero">
+<header id="header">
 
-<div class="hero-box">
+<div class="header-content">
 
-<div class="hero-header">
+<h1>Proyecto: Mesa de Centro Ensamblable</h1>
+
+</div>
+
+</header>
+
+<!-- CONTENIDO -->
+
+<div class="main-container">
+
+<div class="content">
+
+<!-- INTRODUCCIÓN -->
+
+<div class="intro-box">
+
+<h2>🪑 Introducción</h2>
+
+<p>
+Durante el examen interciclo, cada grupo de trabajo fue dividido en dos subgrupos con el objetivo de organizar de mejor manera las tareas relacionadas con diseño y manufactura.
+</p>
+
+<br>
+
+<p>
+El proyecto planteado por el docente consistió en diseñar y fabricar una mesa de centro ensamblable utilizando MDF y herramientas de fabricación digital. La propuesta debía cumplir diferentes restricciones técnicas relacionadas con dimensiones, material y sistema de ensamblaje.
+</p>
+
+<br>
+
+<p>
+Entre las limitaciones establecidas se encontraba el desarrollo de un diseño completamente original fabricado dentro de una plancha MDF de 45 × 30 cm y 3 mm de grosor. Además, la mesa debía ensamblarse sin necesidad de tornillos ni pegamento.
+</p>
+
+<br>
+
+<p>
+Para el desarrollo del proyecto se utilizaron herramientas digitales como Fusion 360, Slicer for Fusion 360 y RDWorks, permitiendo diseñar el modelo, preparar los archivos y fabricar las piezas mediante corte láser.
+</p>
+
+</div>
+
+<!-- REQUISITOS -->
+
+<div class="etapa-header">
+
+<h2>📋 Requisitos del Proyecto</h2>
+
+</div>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>Condiciones Establecidas</h3>
+
+<p>
+El proyecto debía cumplir diferentes requisitos establecidos por el docente con el objetivo de evaluar tanto el diseño como la correcta aplicación de herramientas de fabricación digital.
+</p>
+
+<br>
+
+<p>
+Estas limitaciones permitieron desarrollar una propuesta funcional optimizando material, dimensiones y ensamblaje.
+</p>
+
+<ul>
+
+<li>Diseño completamente original.</li>
+
+<li>Fabricación utilizando MDF.</li>
+
+<li>Plancha de 45 × 30 cm.</li>
+
+<li>Material con grosor de 3 mm.</li>
+
+<li>Ensamblaje sin tornillos ni pegamento.</li>
+
+</ul>
 
 <img
-src="images/Home/Fab.png"
-alt="FABLAB"
+src="images/IMAGENES/requisitos.jpeg"
+alt="Requisitos establecidos para el proyecto"
 >
 
-<h1>FABLAB Projects</h1>
-
-<p>
-Welcome to our FABLAB digital portfolio. This website presents the projects,
-assignments and practical activities developed throughout the Digital Fabrication
-course. Each section documents the different stages of the work, from the initial
-idea and planning process to design, manufacturing, electronics, programming,
-assembly and final testing. The purpose of this portfolio is to show the knowledge,
-technical skills and creative solutions developed during the semester.
-</p>
+</div>
 
 </div>
 
-<!-- CARDS -->
+<!-- IDEACIÓN -->
 
-<div class="sections">
+<div class="etapa-header">
 
-<!-- ASSIGNMENTS -->
+<h2>💡 Ideación</h2>
+
+</div>
+
+<div class="cards">
 
 <div class="card">
 
-<h2>Assignments</h2>
+<h3>Boceto Conceptual</h3>
 
 <p>
-This section contains the documentation of the assignments completed throughout
-the course. It includes activities related to electronic circuit design, PCB
-manufacturing, Arduino programming, computer-aided design and digital fabrication.
-Each assignment presents the development process, the tools used, the results
-obtained and the knowledge acquired during its completion.
+Antes de comenzar el modelado digital, se realizó un boceto conceptual a mano con el objetivo de definir la forma general y apariencia de la mesa.
 </p>
 
-<div class="card-buttons">
+<br>
 
-<a href="asigment1.html" class="btn">
-📄 Assignment 1
-</a>
+<p>
+El boceto permitió visualizar la idea principal del proyecto y sirvió como referencia para el posterior desarrollo digital en Fusion 360.
+</p>
 
-<a href="asigment2.html" class="btn">
-🎰 Assignment 2 - Electronic Roulette
-</a>
+<br>
+
+<p>
+Durante esta etapa únicamente se definió el aspecto general de la mesa, sin desarrollar todavía piezas individuales, uniones o encajes específicos.
+</p>
+
+<br>
+
+<p>
+La prioridad fue crear una propuesta original y funcional que cumpliera con las dimensiones y restricciones establecidas para el proyecto.
+</p>
+
+<div class="multi-img">
+
+<img src="images/IMAGENES/boceto1.jpeg" alt="Primer boceto conceptual">
+
+<img src="images/IMAGENES/boceto2.jpeg" alt="Segundo boceto conceptual">
+
+<img src="images/IMAGENES/boceto3.jpeg" alt="Tercer boceto conceptual">
+
+<img src="images/IMAGENES/boceto4.jpeg" alt="Cuarto boceto conceptual">
+
+<img src="images/IMAGENES/boceto5.jpeg" alt="Quinto boceto conceptual">
+
+<img src="images/IMAGENES/boceto6.jpeg" alt="Sexto boceto conceptual">
 
 </div>
 
 </div>
 
-<!-- PRACTICES -->
+</div>
+
+<!-- DISEÑO DIGITAL -->
+
+<div class="etapa-header">
+
+<h2>🛠️ Diseño Digital</h2>
+
+</div>
+
+<div class="cards">
 
 <div class="card">
 
-<h2>Practices</h2>
+<h3>Modelado en Fusion 360</h3>
 
 <p>
-Explore the practical activities carried out during the semester. These exercises
-were developed to reinforce the theoretical concepts studied in class through
-hands-on experience. The section includes the use of fabrication tools, equipment
-operation, manufacturing procedures, assembly processes and technical tests
-performed in the laboratory.
+Una vez finalizado el boceto conceptual, se inició el proceso de modelado digital utilizando Fusion 360.
 </p>
 
-<a href="Practice/p1.html" class="btn">
-Open Section
-</a>
+<br>
+
+<p>
+En esta etapa se diseñó únicamente la estructura general de la mesa en un entorno tridimensional, permitiendo visualizar sus dimensiones, proporciones y forma final antes de la fabricación.
+</p>
+
+<br>
+
+<p>
+El diseño realizado en Fusion 360 no incluyó el desarrollo individual de piezas ni sistemas de unión, ya que esa parte del proceso sería realizada posteriormente utilizando Slicer for Fusion 360.
+</p>
+
+<br>
+
+<p>
+El modelado digital permitió verificar que el diseño cumpliera correctamente con las dimensiones establecidas y facilitó la preparación del proyecto para la etapa de manufactura.
+</p>
+
+<div class="multi-img">
+
+<img src="images/IMAGENES/fusion1.jpeg" alt="Primer modelado en Fusion 360">
+
+<img src="images/IMAGENES/fusion2.jpeg" alt="Segundo modelado en Fusion 360">
+
+<img src="images/IMAGENES/fusion3.jpeg" alt="Tercer modelado en Fusion 360">
+
+<img src="images/IMAGENES/fusion4.jpeg" alt="Cuarto modelado en Fusion 360">
+
+<img src="images/IMAGENES/fusion5.jpeg" alt="Quinto modelado en Fusion 360">
+
+<img src="images/IMAGENES/fusion6.jpeg" alt="Sexto modelado en Fusion 360">
+
+<img src="images/IMAGENES/fusion7.jpeg" alt="Modelo final en Fusion 360">
 
 </div>
 
-<!-- INTERCICLO -->
+</div>
 
 <div class="card">
 
-<h2>Interciclo</h2>
+<h3>Slicer for Fusion 360</h3>
 
 <p>
-This section presents the midterm project developed during the first part of the
-course. It includes the planning, design, manufacturing and implementation stages,
-showing how different digital fabrication techniques were combined to solve a
-specific engineering challenge and obtain a functional result.
+Después de finalizar el modelo tridimensional, el diseño fue exportado a Slicer for Fusion 360 para convertir automáticamente la estructura en piezas listas para fabricación.
 </p>
 
-<a href="EXAMEN_INTERCICLO.html" class="btn">
-Open Project
-</a>
+<br>
+
+<p>
+El software se encargó de generar las divisiones, piezas y uniones necesarias para el ensamblaje de la mesa, facilitando considerablemente el proceso de manufactura.
+</p>
+
+<br>
+
+<p>
+Además, Slicer permitió organizar todas las piezas dentro del área disponible de la plancha MDF, optimizando el uso del material y reduciendo desperdicios.
+</p>
+
+<br>
+
+<p>
+Esta etapa fue importante para preparar correctamente los archivos antes de enviarlos a corte láser.
+</p>
+
+<div class="multi-img">
+
+<img src="images/IMAGENES/slicer1.jpeg" alt="Configuración inicial en Slicer">
+
+<img src="images/IMAGENES/slicer2.jpeg" alt="Generación de piezas en Slicer">
+
+<img src="images/IMAGENES/slicer3.jpeg" alt="Distribución de piezas en Slicer">
+
+<img src="images/IMAGENES/slicer4.jpeg" alt="Resultado final en Slicer">
 
 </div>
 
-<!-- FINAL PROJECT -->
-
-<div class="card final-project-card">
-
-<h2>Final Project</h2>
-
-<p>
-The Final Project represents the integration of the knowledge and skills acquired
-throughout the entire course. It presents the complete development of an
-intelligent waste sorting bin, beginning with the identification of the problem
-and the generation of ideas. The project also includes mechanical design,
-electronic circuit development, PCB manufacturing, programming, prototype
-assembly, system operation, testing and validation of the final solution.
-</p>
-
-<a href="FINAL_PROJECT.html" class="btn">
-Open Final Project
-</a>
+</div>
 
 </div>
 
-<!-- MUEBLE IKEA -->
+<!-- FABRICACIÓN -->
+
+<div class="etapa-header">
+
+<h2>⚙️ Fabricación</h2>
+
+</div>
+
+<div class="cards">
 
 <div class="card">
 
-<h2>Mueble IKEA</h2>
+<h3>Configuración en RDWorks</h3>
 
 <p>
-This digital furniture project was inspired by the design and assembly principles
-commonly used in IKEA products. The work focused on creating a functional piece
-of furniture that could be manufactured using digital fabrication tools, while
-considering material optimization, ease of assembly, precision cutting and an
-efficient structural design.
+Los archivos obtenidos desde Slicer fueron importados al software RDWorks para configurar los parámetros de corte de la máquina láser.
 </p>
 
-<a href="Mueble-Ikhea.html" class="btn">
-Open Project
-</a>
+<br>
+
+<p>
+Durante esta etapa se configuraron aspectos como velocidad, potencia y trayectoria de corte para asegurar una fabricación precisa de las piezas.
+</p>
+
+<br>
+
+<p>
+La correcta configuración de estos parámetros era fundamental para garantizar que las piezas pudieran desprenderse completamente de la plancha MDF.
+</p>
+
+<div class="multi-img">
+
+<img src="images/IMAGENES/rdworks1.jpeg" alt="Configuración inicial en RDWorks">
+
+<img src="images/IMAGENES/rdworks2.jpeg" alt="Distribución de piezas en RDWorks">
+
+<img src="images/IMAGENES/rdworks3.jpeg" alt="Parámetros de corte en RDWorks">
+
+<img src="images/IMAGENES/rdworks4.jpeg" alt="Preparación del archivo de corte">
+
+<img src="images/IMAGENES/rdworks6.jpeg" alt="Vista previa del corte">
+
+<img src="images/IMAGENES/rdworks7.jpeg" alt="Configuración final en RDWorks">
 
 </div>
 
-<!-- ABOUT US -->
+</div>
 
 <div class="card">
 
-<h2>About Us</h2>
+<h3>Problemas Durante el Corte</h3>
 
 <p>
-This section provides information about the members of our team, our academic
-objectives and the responsibilities assumed during the development of the
-different projects. It also highlights the importance of teamwork, communication,
-organization and the application of technical knowledge in the creation of
-innovative digital fabrication solutions.
+Durante el primer intento de fabricación se presentó un problema relacionado con la configuración de la cortadora láser.
 </p>
 
-<a href="aboutus.html" class="btn">
-Learn More
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<footer class="footer">
+<br>
 
 <p>
-FABLAB Projects | Digital Fabrication Portfolio
+Aunque las dimensiones de las piezas y el kerf fueron correctos, las piezas no lograban desprenderse completamente de la plancha MDF, dando la impresión de que el material no había sido cortado totalmente.
+</p>
+
+<br>
+
+<p>
+Esto ocurrió debido a que los parámetros iniciales de velocidad y potencia utilizados fueron los mismos que se habían enseñado previamente en clases; sin embargo, en este caso no funcionaron correctamente para atravesar completamente el material, por lo que fue necesario ajustar la configuración de la máquina para lograr un corte adecuado.
+</p>
+
+<br>
+
+<p>
+Como solución, fue necesario realizar un segundo corte modificando principalmente la velocidad de trabajo de la máquina.
+</p>
+
+<div class="multi-img">
+
+<img src="images/IMAGENES/corte2.jpeg" alt="Primer problema durante el corte">
+
+<img src="images/IMAGENES/corte3.jpeg" alt="Material sin cortar completamente">
+
+<img src="images/IMAGENES/corte4.jpeg" alt="Revisión de las piezas cortadas">
+
+<img src="images/IMAGENES/corte5.jpeg" alt="Problema de separación de piezas">
+
+<img src="images/IMAGENES/corte6.jpeg" alt="Inspección de la plancha MDF">
+
+<img src="images/IMAGENES/corte7.jpeg" alt="Resultado del primer intento de corte">
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>Segundo Corte Exitoso</h3>
+
+<p>
+Después de ajustar correctamente los parámetros de corte, especialmente la velocidad de trabajo, se logró atravesar completamente el material y obtener todas las piezas correctamente separadas de la plancha MDF.
+</p>
+
+<br>
+
+<p>
+El segundo intento permitió fabricar exitosamente todos los componentes necesarios para el ensamblaje final de la mesa.
+</p>
+
+<br>
+
+<p>
+Las piezas obtenidas mantuvieron correctamente sus dimensiones y tolerancias, permitiendo un ensamblaje preciso y estable.
+</p>
+
+<div class="multi-img">
+
+<img src="images/IMAGENES/exitoso1.jpeg" alt="Segundo corte realizado correctamente">
+
+<img src="images/IMAGENES/exitoso2.jpeg" alt="Piezas desprendidas de la plancha">
+
+<img src="images/IMAGENES/exitoso3.jpeg" alt="Componentes fabricados en MDF">
+
+<img src="images/IMAGENES/exitoso4.jpeg" alt="Piezas obtenidas mediante corte láser">
+
+<img src="images/IMAGENES/exitoso5.jpeg" alt="Resultado exitoso del segundo corte">
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ENSAMBLAJE -->
+
+<div class="etapa-header">
+
+<h2>🔩 Ensamblaje</h2>
+
+</div>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>Verificación del Kerf</h3>
+
+<p>
+Antes del ensamblaje final se verificó que el kerf y las dimensiones de las piezas fueran correctas.
+</p>
+
+<br>
+
+<p>
+La comprobación permitió confirmar que las uniones generadas por Slicer tenían las medidas adecuadas para ensamblar correctamente la estructura.
+</p>
+
+<br>
+
+<p>
+Gracias a la precisión del corte láser y al correcto ajuste del kerf, las piezas encajaron de forma adecuada sin necesidad de realizar modificaciones adicionales.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Proceso de Ensamblaje</h3>
+
+<p>
+Una vez finalizado el proceso de corte, las piezas fueron ensambladas siguiendo el sistema de uniones generado automáticamente por Slicer for Fusion 360.
+</p>
+
+<br>
+
+<p>
+El ensamblaje se realizó sin utilizar tornillos, pegamento ni elementos externos, cumpliendo completamente con las restricciones establecidas para el proyecto.
+</p>
+
+<br>
+
+<p>
+La precisión obtenida durante el corte permitió unir cada componente de forma estable y segura.
+</p>
+
+<div class="multi-img">
+
+<img src="images/IMAGENES/ensamble1.jpeg" alt="Inicio del proceso de ensamblaje">
+
+<img src="images/IMAGENES/ensamble2.jpeg" alt="Unión de las piezas de MDF">
+
+<img src="images/IMAGENES/ensamble3.jpeg" alt="Estructura parcialmente ensamblada">
+
+<img src="images/IMAGENES/ensamble4.jpeg" alt="Proceso final de ensamblaje">
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>Resultado Final</h3>
+
+<p>
+El resultado final fue una mesa de centro funcional, resistente y completamente ensamblable mediante fabricación digital y corte láser.
+</p>
+
+<br>
+
+<p>
+El proyecto permitió integrar conocimientos relacionados con diseño digital, modelado tridimensional, preparación de archivos y procesos de manufactura asistida por computadora.
+</p>
+
+<br>
+
+<p>
+Finalmente, se logró cumplir todas las restricciones planteadas inicialmente, obteniendo un producto completamente funcional y ensamblable.
+</p>
+
+<div class="multi-img">
+
+<img src="images/IMAGENES/final1.jpeg" alt="Primera vista del resultado final">
+
+<img src="images/IMAGENES/final2.jpeg" alt="Segunda vista de la mesa terminada">
+
+<img src="images/IMAGENES/final3.jpeg" alt="Resultado final de la mesa ensamblable">
+
+</div>
+
+</div>
+
+</div>
+
+<!-- VIDEO -->
+
+<div class="etapa-header">
+
+<h2>🎥 Video del Proyecto</h2>
+
+</div>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>Proceso Completo</h3>
+
+<p>
+Demostración visual del proceso de modelado digital, preparación de archivos, corte láser y ensamblaje final de la mesa de centro.
+</p>
+
+<video controls preload="metadata">
+
+<source src="images/IMAGENES/video.mp4" type="video/mp4">
+
+Tu navegador no soporta videos HTML5.
+
+</video>
+
+</div>
+
+</div>
+
+<!-- CONCLUSIÓN -->
+
+<div class="highlight-text">
+
+<strong>Conclusión:</strong>
+
+<br><br>
+
+El proyecto permitió aplicar conocimientos relacionados con modelado digital, preparación de archivos y procesos de manufactura mediante herramientas como Fusion 360, Slicer for Fusion 360 y RDWorks.
+
+<br><br>
+
+A pesar de los problemas iniciales presentados durante el corte láser, se logró corregir la configuración de la máquina, obteniendo piezas precisas y completamente funcionales.
+
+<br><br>
+
+El resultado final fue una mesa de centro ensamblable, original y fabricada exitosamente sin necesidad de tornillos ni pegamento, cumpliendo todos los requisitos establecidos para el proyecto.
+
+</div>
+
+<!-- RÚBRICA DE EVALUACIÓN -->
+
+<div class="etapa-header">
+
+<h2>📝 Rúbrica de Evaluación</h2>
+
+</div>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>Evaluación del Proyecto</h3>
+
+<p>
+El docente puede seleccionar el nivel alcanzado en cada criterio de evaluación del proyecto.
+</p>
+
+<br>
+
+<div class="table-container">
+
+<table>
+
+<thead>
+
+<tr style="background:linear-gradient(135deg,#10b981,#047857);color:white;">
+
+<th>Código</th>
+
+<th>Criterio</th>
+
+<th>Alto</th>
+
+<th>Medio</th>
+
+<th>Bajo</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td><strong>PI 2.1</strong></td>
+
+<td style="text-align:left;">
+Bosquejo conceptual (4 pts)
+</td>
+
+<td>
+
+<input type="radio" name="pi21">
+
+<br>
+
+4 pts
+
+</td>
+
+<td>
+
+<input type="radio" name="pi21">
+
+<br>
+
+2 pts
+
+</td>
+
+<td>
+
+<input type="radio" name="pi21">
+
+<br>
+
+0 pts
+
+</td>
+
+</tr>
+
+<tr>
+
+<td><strong>PI 2.2</strong></td>
+
+<td style="text-align:left;">
+Diseño CAD 2D y 3D (10 pts)
+</td>
+
+<td>
+
+<input type="radio" name="pi22">
+
+<br>
+
+10 pts
+
+</td>
+
+<td>
+
+<input type="radio" name="pi22">
+
+<br>
+
+5 pts
+
+</td>
+
+<td>
+
+<input type="radio" name="pi22">
+
+<br>
+
+0 pts
+
+</td>
+
+</tr>
+
+<tr>
+
+<td><strong>PI 2.3</strong></td>
+
+<td style="text-align:left;">
+RDWorks y Slicer (7 pts)
+</td>
+
+<td>
+
+<input type="radio" name="pi23">
+
+<br>
+
+7 pts
+
+</td>
+
+<td>
+
+<input type="radio" name="pi23">
+
+<br>
+
+3.5 pts
+
+</td>
+
+<td>
+
+<input type="radio" name="pi23">
+
+<br>
+
+0 pts
+
+</td>
+
+</tr>
+
+<tr>
+
+<td><strong>PI 2.4</strong></td>
+
+<td style="text-align:left;">
+Diseño ensamblado (4 pts)
+</td>
+
+<td>
+
+<input type="radio" name="pi24">
+
+<br>
+
+4 pts
+
+</td>
+
+<td>
+
+<input type="radio" name="pi24">
+
+<br>
+
+2 pts
+
+</td>
+
+<td>
+
+<input type="radio" name="pi24">
+
+<br>
+
+0 pts
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+<br><br>
+
+<h3>⚠ Penalizaciones</h3>
+
+<div class="table-container">
+
+<table>
+
+<thead>
+
+<tr style="background:linear-gradient(135deg,#ef4444,#b91c1c);color:white;">
+
+<th>Criterio</th>
+
+<th>Aplicar</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td style="text-align:left;">
+Diseño excesivamente simple y sin evidencia de diseño paramétrico (-50%)
+</td>
+
+<td>
+
+<input type="checkbox">
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+No documenta fotografías ni video explicativo de 1 minuto (-50%)
+</td>
+
+<td>
+
+<input type="checkbox">
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+<br><br>
+
+<h3>📌 Nota Final</h3>
+
+<input
+type="text"
+placeholder="Escribir nota final aquí"
+>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<footer class="site-footer">
+
+<p>
+FABLAB · Proyecto de mesa ensamblable mediante fabricación digital
 </p>
 
 </footer>
+
+<!-- MODAL -->
+
+<div id="imageModal" class="modal">
+
+<span class="close">&times;</span>
+
+<img
+class="modal-content"
+id="imgExpanded"
+alt="Imagen ampliada del proyecto"
+>
+
+</div>
+
+<script>
+
+const modal = document.getElementById("imageModal");
+
+const modalImg = document.getElementById("imgExpanded");
+
+const images = document.querySelectorAll(".card img");
+
+const closeBtn = document.querySelector(".close");
+
+images.forEach(img => {
+
+img.addEventListener("click",function(){
+
+modal.style.display = "block";
+
+modalImg.src = this.src;
+
+modalImg.alt = this.alt || "Imagen ampliada del proyecto";
+
+document.body.style.overflow = "hidden";
+
+});
+
+});
+
+closeBtn.addEventListener("click",function(){
+
+modal.style.display = "none";
+
+document.body.style.overflow = "auto";
+
+});
+
+modal.addEventListener("click",function(event){
+
+if(event.target !== modalImg){
+
+modal.style.display = "none";
+
+document.body.style.overflow = "auto";
+
+}
+
+});
+
+document.addEventListener("keydown",function(event){
+
+if(event.key === "Escape"){
+
+modal.style.display = "none";
+
+document.body.style.overflow = "auto";
+
+}
+
+});
+
+</script>
 
 </body>
 
