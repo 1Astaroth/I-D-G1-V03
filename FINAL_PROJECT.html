@@ -1,0 +1,1494 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Proyecto Final - Basurero Clasificador Inteligente</title>
+
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+>
+
+<style>
+
+/* ==================================================
+   CONFIGURACIÓN GENERAL
+================================================== */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Segoe UI',Arial,sans-serif;
+background:#f3f8fb;
+color:#333;
+line-height:1.7;
+}
+
+/* ==================================================
+   BARRA DE NAVEGACIÓN
+================================================== */
+
+.navbar{
+width:100%;
+background:linear-gradient(135deg,#67cce2,#88a9dc);
+padding:20px 50px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+box-shadow:0 5px 20px rgba(0,0,0,0.15);
+border-bottom:5px solid #4f9f8b;
+position:relative;
+z-index:1000;
+}
+
+.logo{
+color:white;
+font-size:2rem;
+font-weight:800;
+letter-spacing:2px;
+text-decoration:none;
+}
+
+.nav-links{
+display:flex;
+align-items:center;
+gap:18px;
+}
+
+.nav-links a{
+color:white;
+text-decoration:none;
+font-weight:700;
+padding:10px 16px;
+border-radius:10px;
+transition:background 0.3s ease, transform 0.3s ease;
+}
+
+.nav-links a:hover{
+background:rgba(255,255,255,0.20);
+transform:translateY(-2px);
+}
+
+.nav-links a.active{
+background:rgba(255,255,255,0.25);
+}
+
+/* BOTÓN DEL MENÚ MÓVIL */
+
+.menu-toggle{
+display:none;
+background:transparent;
+border:none;
+color:white;
+font-size:1.8rem;
+cursor:pointer;
+}
+
+/* ==================================================
+   ENCABEZADO DEL PROYECTO
+================================================== */
+
+#header{
+background:linear-gradient(135deg,#0ea5e9,#0284c7);
+color:white;
+padding:2.5rem;
+text-align:center;
+}
+
+.header-content{
+max-width:1100px;
+margin:auto;
+}
+
+.header-content h1{
+font-size:2.5rem;
+font-weight:bold;
+}
+
+.header-content p{
+font-size:1.1rem;
+margin-top:10px;
+}
+
+/* ==================================================
+   CONTENEDOR PRINCIPAL
+================================================== */
+
+.main-container{
+max-width:1300px;
+margin:auto;
+padding:2rem;
+}
+
+.content{
+background:white;
+padding:2.5rem;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* ==================================================
+   ENCABEZADOS DE ETAPAS
+================================================== */
+
+.etapa-header{
+background:#0284c7;
+color:white;
+padding:1.3rem;
+border-radius:12px;
+margin:2rem 0;
+text-align:center;
+}
+
+.intro-box{
+background:#e0f2fe;
+padding:2rem;
+border-left:7px solid #0284c7;
+border-radius:12px;
+margin-bottom:2rem;
+}
+
+/* ==================================================
+   TARJETAS
+================================================== */
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:25px;
+}
+
+.card{
+background:#fff;
+padding:25px;
+border-radius:15px;
+border:1px solid #e5e7eb;
+box-shadow:0 8px 25px rgba(0,0,0,0.12);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+.card h3{
+color:#0369a1;
+margin-bottom:10px;
+}
+
+/* ==================================================
+   GALERÍAS DE IMÁGENES
+================================================== */
+
+.multi-img{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+gap:10px;
+margin-top:15px;
+}
+
+.multi-img img{
+width:100%;
+height:210px;
+object-fit:cover;
+border-radius:10px;
+cursor:pointer;
+transition:.3s;
+}
+
+.multi-img img:hover{
+transform:scale(1.03);
+}
+
+/* ==================================================
+   BOTONES DE DESCARGA
+================================================== */
+
+.btn-download{
+display:inline-block;
+margin-top:15px;
+padding:10px 16px;
+background:#0284c7;
+color:white;
+border-radius:8px;
+text-decoration:none;
+font-weight:bold;
+transition:0.3s;
+}
+
+.btn-download:hover{
+background:#0369a1;
+transform:translateY(-2px);
+}
+
+/* ==================================================
+   TEXTO DESTACADO
+================================================== */
+
+.highlight-text{
+background:#e0f2fe;
+padding:1.5rem;
+border-left:7px solid #0284c7;
+margin-top:2rem;
+border-radius:12px;
+}
+
+/* ==================================================
+   VIDEOS
+================================================== */
+
+video{
+width:100%;
+border-radius:12px;
+margin-top:15px;
+background:#000;
+}
+
+.video-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:20px;
+margin-top:25px;
+}
+
+.video-item{
+background:#f8fafc;
+padding:18px;
+border:1px solid #e5e7eb;
+border-radius:12px;
+}
+
+.video-item h4{
+color:#0369a1;
+margin-bottom:5px;
+text-align:center;
+font-size:1.1rem;
+}
+
+/* ==================================================
+   MODAL PARA AMPLIAR IMÁGENES
+================================================== */
+
+.modal{
+display:none;
+position:fixed;
+z-index:2000;
+padding-top:50px;
+left:0;
+top:0;
+width:100%;
+height:100%;
+overflow:auto;
+background:rgba(0,0,0,0.9);
+}
+
+.modal-content{
+margin:auto;
+display:block;
+width:80%;
+max-width:1000px;
+border-radius:15px;
+animation:zoom .3s;
+}
+
+@keyframes zoom{
+
+from{
+transform:scale(0.7);
+}
+
+to{
+transform:scale(1);
+}
+
+}
+
+.close{
+position:absolute;
+top:20px;
+right:35px;
+color:white;
+font-size:40px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.close:hover{
+color:#0ea5e9;
+}
+
+/* ==================================================
+   DISEÑO RESPONSIVO
+================================================== */
+
+@media(max-width:1000px){
+
+.navbar{
+padding:20px 25px;
+}
+
+.nav-links{
+gap:5px;
+}
+
+.nav-links a{
+padding:9px 10px;
+font-size:0.93rem;
+}
+
+}
+
+@media(max-width:768px){
+
+.navbar{
+padding:18px 22px;
+flex-wrap:wrap;
+}
+
+.logo{
+font-size:1.7rem;
+}
+
+.menu-toggle{
+display:block;
+}
+
+.nav-links{
+display:none;
+width:100%;
+flex-direction:column;
+align-items:stretch;
+gap:8px;
+padding-top:18px;
+}
+
+.nav-links.show{
+display:flex;
+}
+
+.nav-links a{
+width:100%;
+text-align:center;
+padding:11px;
+}
+
+#header{
+padding:1.5rem;
+}
+
+.header-content h1{
+font-size:1.8rem;
+}
+
+.main-container{
+padding:1rem;
+}
+
+.content{
+padding:1rem;
+}
+
+.card{
+padding:18px;
+}
+
+.multi-img img{
+height:160px;
+}
+
+.modal-content{
+width:95%;
+}
+
+.video-grid{
+grid-template-columns:1fr;
+}
+
+}
+
+@media(max-width:480px){
+
+.cards{
+grid-template-columns:1fr;
+}
+
+.header-content h1{
+font-size:1.5rem;
+}
+
+.header-content p{
+font-size:1rem;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- ==================================================
+     BARRA DE NAVEGACIÓN
+================================================== -->
+
+<nav class="navbar">
+
+<a href="index.html" class="logo">
+FABLAB
+</a>
+
+<button
+class="menu-toggle"
+id="menuToggle"
+aria-label="Abrir menú de navegación"
+aria-expanded="false"
+>
+
+<i class="fas fa-bars"></i>
+
+</button>
+
+<div class="nav-links" id="navLinks">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="asigment1.html">
+Assignments
+</a>
+
+<a href="Practice/p1.html">
+Practices
+</a>
+
+<a href="EXAMEN_INTERCICLO.html">
+Interciclo
+</a>
+
+<a href="Final_project.html" class="active">
+Final Project
+</a>
+
+<a href="aboutus.html">
+About Us
+</a>
+
+</div>
+
+</nav>
+
+<!-- ==================================================
+     ENCABEZADO DEL PROYECTO
+================================================== -->
+
+<header id="header">
+
+<div class="header-content">
+
+<h1>
+Proyecto Final: Basurero Clasificador Inteligente
+</h1>
+
+<p>
+Diseño, fabricación y automatización de un sistema para clasificar residuos
+</p>
+
+</div>
+
+</header>
+<!-- ==================================================
+     CONTENIDO PRINCIPAL
+================================================== -->
+
+<div class="main-container">
+
+<div class="content">
+
+<!-- ==================================================
+     INTRODUCCIÓN
+================================================== -->
+
+<div class="intro-box">
+
+<h2>
+♻️ Introducción
+</h2>
+
+<p>
+El presente proyecto final consiste en el diseño y fabricación de un
+basurero clasificador inteligente, desarrollado con el objetivo de
+facilitar la separación de residuos de manera automática. La propuesta
+busca aportar a una mejor gestión de la basura, reduciendo los errores
+que pueden producirse al momento de clasificar los desechos y
+promoviendo prácticas más responsables con el ambiente.
+</p>
+
+<br>
+
+<p>
+Para su desarrollo se integraron herramientas de análisis de
+requerimientos, diseño asistido por computadora, electrónica,
+programación y fabricación digital. El sistema funciona mediante un
+mecanismo accionado por un servomotor, el cual permite mover la parte
+central del basurero para dirigir cada residuo hacia el contenedor
+correspondiente.
+</p>
+
+</div>
+
+<!-- ==================================================
+     ANÁLISIS QFD
+================================================== -->
+
+<div class="etapa-header">
+
+<h2>
+📋 Análisis QFD
+</h2>
+
+</div>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>
+Tabla QFD
+</h3>
+
+<p>
+La primera etapa del proyecto consistió en realizar una tabla QFD,
+también conocida como Casa de la Calidad. Esta herramienta permitió
+analizar las necesidades de los posibles usuarios y relacionarlas con
+las características técnicas que debía tener el producto. De esta
+manera, fue posible identificar cuáles eran los aspectos más
+importantes que debían considerarse durante el diseño del basurero
+clasificador.
+</p>
+
+<div class="multi-img">
+
+<img
+src="IMAGENES/QFD1.jpeg"
+alt="Tabla QFD del proyecto"
+>
+
+<img
+src="IMAGENES/QFD2.jpg"
+alt="Análisis de la Casa de la Calidad"
+>
+
+<img
+src="IMAGENES/QDF3.jpg"
+alt="Resultados del análisis QFD"
+>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ==================================================
+     IDEACIÓN Y BOCETOS
+================================================== -->
+
+<div class="etapa-header">
+
+<h2>
+💡 Ideación y Bocetos
+</h2>
+
+</div>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>
+Generación de Ideas
+</h3>
+
+<p>
+Después del análisis QFD, el grupo realizó una lluvia de ideas para
+definir cómo sería posible construir el basurero clasificador
+inteligente. En esta etapa se analizaron diferentes alternativas de
+diseño, considerando aspectos como el tamaño del prototipo, la
+ubicación de los contenedores, el movimiento de la parte central, la
+facilidad de uso y la integración de los componentes electrónicos.
+</p>
+
+<br>
+
+<p>
+Esta fase permitió transformar una idea inicial en una propuesta más
+clara, organizada y funcional. Se buscó que el basurero no solo
+cumpliera con la clasificación de residuos, sino que también tuviera
+una estructura práctica, estable y fácil de comprender para el usuario.
+</p>
+
+<div class="multi-img">
+
+<img
+src="IMAGENES/Ideas2.jpeg"
+alt="Generación de ideas del proyecto"
+>
+
+<img
+src="IMAGENES/Ideas1.jpeg"
+alt="Lluvia de ideas del equipo"
+>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>
+Boceto Seleccionado
+</h3>
+
+<p>
+Luego de comparar las diferentes propuestas planteadas por el equipo,
+se escogió el boceto que mejor se adaptaba al funcionamiento esperado
+del sistema. El diseño seleccionado permite ubicar los contenedores
+alrededor de un mecanismo central móvil, facilitando que la basura sea
+dirigida hacia el recipiente correspondiente de forma ordenada.
+</p>
+
+<p>
+La selección del boceto también tomó en cuenta la facilidad de
+fabricación, el espacio disponible para los componentes electrónicos,
+la estabilidad de la estructura y la posibilidad de realizar ajustes
+durante la etapa de ensamblado.
+</p>
+
+<div class="multi-img">
+
+<img
+src="IMAGENES/Bocetofinal.jpeg"
+alt="Boceto final seleccionado"
+>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ==================================================
+     ORGANIZACIÓN DEL EQUIPO
+================================================== -->
+
+<div class="etapa-header">
+
+<h2>
+👥 Organización del Equipo
+</h2>
+
+</div>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>
+Distribución de Actividades
+</h3>
+
+<p>
+Para desarrollar el proyecto de manera más eficiente, el grupo se
+dividió en dos subgrupos de trabajo. Kerly Morales y Camila Barros se
+encargaron del diseño del basurero, el modelado de los contenedores y
+la fabricación de las piezas mediante impresión 3D.
+</p>
+
+<br>
+
+<p>
+Por otro lado, Jairo Andrade y Domenica Peña se enfocaron en la parte
+electrónica, el funcionamiento del sistema, el control del servomotor,
+el diseño de la placa en KiCad y la elaboración de las pistas de cobre.
+Esta distribución permitió que cada integrante se concentrara en una
+parte específica del proyecto, manteniendo una coordinación constante
+para integrar posteriormente todos los elementos en un solo prototipo.
+</p>
+
+<br>
+
+<p>
+La organización del equipo fue fundamental para distribuir
+responsabilidades, aprovechar las habilidades de cada integrante y
+cumplir con las diferentes etapas del proyecto dentro del tiempo
+disponible.
+</p>
+
+</div>
+
+</div>
+
+<!-- ==================================================
+     DISEÑO E IMPRESIÓN 3D
+================================================== -->
+
+<div class="etapa-header">
+
+<h2>
+🧩 Diseño e Impresión 3D
+</h2>
+
+</div>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>
+Diseño de Contenedores
+</h3>
+
+<p>
+El diseño del basurero se desarrolló considerando la ubicación de los
+contenedores, el espacio necesario para la parte móvil central y la
+integración de los componentes electrónicos. Durante esta etapa se
+definieron las formas, dimensiones y uniones principales que tendría
+la estructura del prototipo.
+</p>
+
+<br>
+
+<p>
+El modelado tridimensional permitió visualizar el resultado antes de
+la fabricación, detectar posibles problemas de ensamblaje y realizar
+correcciones en las piezas. Gracias a este proceso se logró obtener un
+diseño más preciso y adaptado al mecanismo de clasificación propuesto.
+</p>
+
+<div class="multi-img">
+
+<img
+src="IMAGENES/Diseño1.jpeg"
+alt="Diseño del primer contenedor"
+>
+
+<img
+src="IMAGENES/Diseño2.jpeg"
+alt="Modelado tridimensional del basurero"
+>
+
+<img
+src="IMAGENES/Diseño3.jpeg"
+alt="Diseño de los componentes del prototipo"
+>
+
+<img
+src="IMAGENES/Diseño4.jpeg"
+alt="Diseño final de los contenedores"
+>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>
+Impresión 3D
+</h3>
+
+<p>
+Una vez definidos y revisados los diseños, se procedió a imprimir los
+contenedores y las piezas principales del prototipo. La impresión 3D
+permitió fabricar componentes personalizados, ajustados a las medidas
+establecidas y compatibles con el funcionamiento del sistema.
+</p>
+
+<br>
+
+<p>
+Durante el proceso se supervisaron aspectos como la correcta adhesión
+de las primeras capas, el tiempo de fabricación, el acabado de las
+piezas y la precisión dimensional. Después de la impresión, cada
+componente fue revisado para comprobar que pudiera integrarse
+correctamente con el resto de la estructura.
+</p>
+
+<div class="multi-img">
+
+<img
+src="IMAGENES/Impresion1.jpeg"
+alt="Proceso de impresión 3D"
+>
+
+<img
+src="IMAGENES/Impresion2.jpeg"
+alt="Piezas impresas en 3D"
+>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ==================================================
+     DISEÑO DE PLACA Y PISTAS
+================================================== -->
+
+<div class="etapa-header">
+
+<h2>
+🔌 Diseño de Placa en KiCad
+</h2>
+
+</div>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>
+Esquemático y PCB
+</h3>
+
+<p>
+También se realizaron los esquemas de la placa electrónica en KiCad.
+Esta etapa permitió organizar las conexiones del circuito, identificar
+los pines de cada componente y establecer la relación entre los
+sensores, el sistema de control y el servomotor.
+</p>
+
+<br>
+
+<p>
+Después de completar el esquemático, se diseñó la distribución de los
+componentes y de las pistas en la placa PCB. Para ello se consideró el
+espacio disponible, la facilidad de conexión y la separación adecuada
+entre las pistas, con el propósito de obtener una placa ordenada y
+funcional.
+</p>
+
+<div class="multi-img">
+
+<img
+src="IMAGENES/Kikat1.jpeg"
+alt="Esquema electrónico en KiCad"
+>
+
+<img
+src="IMAGENES/Kikat2.jpeg"
+alt="Diseño de PCB en KiCad"
+>
+
+<img
+src="IMAGENES/Kikat3.jpeg"
+alt="Distribución de componentes en la placa"
+>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>
+Fabricación de Pistas
+</h3>
+
+<p>
+Luego del diseño de la placa, se procedió a realizar las pistas de
+cobre mediante una máquina de desbaste con láser. Este procedimiento
+permitió retirar el material alrededor de las pistas y conservar los
+caminos conductores necesarios para conectar los componentes
+electrónicos.
+</p>
+
+<br>
+
+<p>
+Durante la fabricación se revisó la continuidad de las pistas, la
+separación entre las conexiones y el estado general de la placa. Estas
+verificaciones fueron importantes para reducir la posibilidad de
+cortocircuitos o conexiones defectuosas durante el ensamblaje del
+sistema.
+</p>
+
+<div class="multi-img">
+
+<img
+src="IMAGENES/Placa1.jpeg"
+alt="Preparación de la placa electrónica"
+>
+
+<img
+src="IMAGENES/Placa2.jpeg"
+alt="Fabricación de las pistas de cobre"
+>
+
+<img
+src="IMAGENES/Placa3.jpeg"
+alt="Proceso de desbaste de la placa"
+>
+
+<img
+src="IMAGENES/Placa4.jpeg"
+alt="Placa electrónica terminada"
+>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ==================================================
+     ENSAMBLADO DEL PROTOTIPO
+================================================== -->
+
+<div class="etapa-header">
+
+<h2>
+🔧 Ensamblado del Prototipo
+</h2>
+
+</div>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>
+Integración de la Estructura y los Componentes
+</h3>
+
+<p>
+Una vez terminadas las piezas impresas en 3D y preparada la placa
+electrónica, se procedió al ensamblado general del basurero
+clasificador. En esta etapa se colocaron los contenedores en su
+posición definitiva, se instaló el mecanismo central y se verificó que
+cada elemento quedara correctamente alineado.
+</p>
+
+<br>
+
+<p>
+El servomotor fue fijado en la zona central del prototipo para
+controlar el movimiento del canal encargado de dirigir los residuos.
+También se conectaron la placa electrónica, los sensores y los demás
+componentes necesarios para el funcionamiento del sistema.
+</p>
+
+<br>
+
+<p>
+Los cables fueron organizados cuidadosamente para evitar que
+interfirieran con el movimiento del mecanismo o con la caída de los
+residuos. Además, se realizaron ajustes en las uniones, soportes y
+puntos de fijación para mejorar la estabilidad de la estructura.
+</p>
+
+<br>
+
+<p>
+Esta etapa permitió unir la parte mecánica, las piezas impresas y el
+sistema electrónico en un solo prototipo. Después del ensamblado se
+verificó que el canal central pudiera girar libremente y que los
+componentes permanecieran firmes durante las pruebas.
+</p>
+
+<div class="multi-img">
+
+<img
+src="IMAGENES/Ensamblado1.jpeg"
+alt="Ensamblado de la estructura"
+>
+
+<img
+src="IMAGENES/Ensamblado2.jpeg"
+alt="Instalación de los componentes"
+>
+
+</div>
+
+<!-- DOS VIDEOS DE ENSAMBLADO -->
+
+<div class="video-grid">
+
+<div class="video-item">
+
+<h4>
+Proceso de ensamblado
+</h4>
+
+<video controls preload="metadata">
+
+<source
+src="IMAGENES/Ensamblado4.mp4"
+type="video/mp4"
+>
+
+Tu navegador no soporta videos HTML5.
+
+</video>
+
+</div>
+
+<div class="video-item">
+
+<h4>
+Integración final del prototipo
+</h4>
+
+<video controls preload="metadata">
+
+<source
+src="IMAGENES/Ensamblado5.mp4"
+type="video/mp4"
+>
+
+Tu navegador no soporta videos HTML5.
+
+</video>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<!-- ==================================================
+     FUNCIONAMIENTO DEL PROYECTO
+================================================== -->
+
+<div class="etapa-header">
+
+<h2>
+⚙️ Funcionamiento del Proyecto
+</h2>
+
+</div>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>
+Clasificación Automática de Residuos
+</h3>
+
+<p>
+El funcionamiento del proyecto se basa en la combinación del sistema
+de detección, el control electrónico y el mecanismo de distribución.
+Cuando se introduce un residuo, el sistema identifica la categoría
+correspondiente y envía una señal al servomotor para que se mueva hasta
+el ángulo programado.
+</p>
+
+<br>
+
+<p>
+El servomotor gira la parte central del basurero y la alinea con el
+contenedor adecuado. Una vez alcanzada la posición establecida, el
+residuo desciende por el canal y cae en el recipiente destinado para
+ese tipo de desecho.
+</p>
+
+<br>
+
+<p>
+Después de completar la clasificación, el mecanismo regresa a su
+posición inicial y queda preparado para recibir un nuevo residuo. Los
+ángulos de giro fueron calibrados mediante varias pruebas para asegurar
+que el canal coincida correctamente con cada contenedor.
+</p>
+
+<br>
+
+<p>
+Durante las pruebas también se verificó la respuesta del servomotor, la
+velocidad de movimiento y la estabilidad del canal central. Estos
+ajustes ayudaron a evitar que los residuos cayeran fuera de los
+recipientes o que el mecanismo se detuviera en una posición incorrecta.
+</p>
+
+<br>
+
+<p>
+La integración entre el diseño mecánico, la placa electrónica y el
+código de programación permite que el prototipo realice la
+clasificación de forma ordenada y automática. De esta manera, el
+proyecto demuestra una aplicación práctica de la automatización en el
+manejo y separación de residuos.
+</p>
+
+<!-- UN VIDEO DE FUNCIONAMIENTO -->
+
+<div class="video-item">
+
+<h4>
+Demostración del funcionamiento
+</h4>
+
+<video controls preload="metadata">
+
+<source
+src="IMAGENES/Funcionamiento.mp4"
+type="video/mp4"
+>
+
+Tu navegador no soporta videos HTML5.
+
+</video>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ==================================================
+     VIDEO GENERAL DEL PROCESO
+================================================== -->
+
+<div class="etapa-header">
+
+<h2>
+🎥 Video del Proceso
+</h2>
+
+</div>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>
+Explicación del Proyecto
+</h3>
+
+<p>
+En esta sección se presenta un video donde se explica el proceso
+completo del proyecto, desde la etapa de análisis QFD, la generación de
+ideas y los bocetos, hasta el diseño, la impresión 3D, el desarrollo
+electrónico, la fabricación de la placa, el ensamblado y las pruebas de
+funcionamiento del basurero clasificador.
+</p>
+
+<video controls preload="metadata">
+
+<source
+src="IMAGENES/Proceso1.mp4"
+type="video/mp4"
+>
+
+Tu navegador no soporta videos HTML5.
+
+</video>
+
+</div>
+
+</div>
+
+<!-- ==================================================
+     ARCHIVOS DESCARGABLES
+================================================== -->
+
+<div class="etapa-header">
+
+<h2>
+📂 Descargables
+</h2>
+
+</div>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>
+QFD
+</h3>
+
+<p>
+Documento de Excel que contiene el análisis QFD utilizado para
+identificar y relacionar las necesidades de los usuarios con las
+características técnicas del basurero clasificador.
+</p>
+
+<a
+href="DESCARGABLES/QFD_BASURERO.xlsx"
+class="btn-download"
+download
+>
+
+<i class="fas fa-download"></i>
+
+Descargar QFD
+
+</a>
+
+</div>
+
+<div class="card">
+
+<h3>
+Archivos de Diseño 3D
+</h3>
+
+<p>
+Modelos tridimensionales utilizados para fabricar los contenedores y
+los diferentes componentes que forman parte de la estructura del
+prototipo.
+</p>
+
+<a
+href="DESCARGABLES/Modelos_3D.zip"
+class="btn-download"
+download
+>
+
+<i class="fas fa-download"></i>
+
+Descargar Modelos
+
+</a>
+
+</div>
+
+<div class="card">
+
+<h3>
+Archivos KiCad
+</h3>
+
+<p>
+Archivos correspondientes al esquemático electrónico, la distribución
+de componentes y el diseño de las pistas de la placa PCB.
+</p>
+
+<a
+href="DESCARGABLES/Archivos_KiCad.zip"
+class="btn-download"
+download
+>
+
+<i class="fas fa-download"></i>
+
+Descargar KiCad
+
+</a>
+
+</div>
+
+<div class="card">
+
+<h3>
+Código del Sistema
+</h3>
+
+<p>
+Código utilizado para controlar el servomotor, procesar la información
+del sistema de detección y ejecutar la clasificación automática de los
+residuos.
+</p>
+
+<a
+href="DESCARGABLES/Codigo_Sistema.zip"
+class="btn-download"
+download
+>
+
+<i class="fas fa-download"></i>
+
+Descargar Código
+
+</a>
+
+</div>
+
+</div>
+
+<!-- ==================================================
+     CONCLUSIÓN
+================================================== -->
+
+<div class="highlight-text">
+
+<strong>
+Conclusión:
+</strong>
+
+<br><br>
+
+El proyecto permitió integrar diseño, fabricación digital y
+electrónica en el desarrollo de un basurero clasificador inteligente.
+A través del análisis QFD se definieron las principales características
+del producto, mientras que los bocetos y modelos tridimensionales
+permitieron seleccionar y mejorar una propuesta funcional.
+
+<br><br>
+
+Posteriormente, se diseñó la placa electrónica en KiCad y se fabricaron
+las pistas de cobre necesarias para conectar los componentes. Una vez
+finalizada esta etapa, se realizó el ensamblado de los contenedores, el
+mecanismo central, el servomotor y la placa electrónica.
+
+<br><br>
+
+Finalmente, las pruebas de funcionamiento y la calibración de los
+ángulos permitieron comprobar que el mecanismo puede orientar los
+residuos hacia el contenedor correspondiente. El resultado demuestra
+cómo el diseño, la automatización y la conciencia ambiental pueden
+combinarse para generar una alternativa práctica para la clasificación
+de desechos.
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ==================================================
+     MODAL PARA AMPLIAR IMÁGENES
+================================================== -->
+
+<div id="imageModal" class="modal">
+
+<span class="close">
+&times;
+</span>
+
+<img
+class="modal-content"
+id="imgExpanded"
+alt="Imagen ampliada del proyecto"
+>
+
+</div>
+
+<!-- ==================================================
+     JAVASCRIPT
+================================================== -->
+
+<script>
+
+/* MENÚ RESPONSIVO */
+
+const menuToggle = document.getElementById("menuToggle");
+
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click",function(){
+
+const isOpen = navLinks.classList.toggle("show");
+
+menuToggle.setAttribute("aria-expanded",isOpen);
+
+if(isOpen){
+
+menuToggle.innerHTML = '<i class="fas fa-times"></i>';
+
+}else{
+
+menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+
+}
+
+});
+
+const navigationLinks = document.querySelectorAll(".nav-links a");
+
+navigationLinks.forEach(link => {
+
+link.addEventListener("click",function(){
+
+navLinks.classList.remove("show");
+
+menuToggle.setAttribute("aria-expanded","false");
+
+menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+
+});
+
+});
+
+/* MODAL PARA AMPLIAR IMÁGENES */
+
+const modal = document.getElementById("imageModal");
+
+const modalImg = document.getElementById("imgExpanded");
+
+const images = document.querySelectorAll(".multi-img img");
+
+const closeBtn = document.querySelector(".close");
+
+images.forEach(img => {
+
+img.addEventListener("click",function(){
+
+modal.style.display = "block";
+
+modalImg.src = this.src;
+
+modalImg.alt = this.alt;
+
+document.body.style.overflow = "hidden";
+
+});
+
+});
+
+closeBtn.addEventListener("click",function(){
+
+modal.style.display = "none";
+
+document.body.style.overflow = "auto";
+
+});
+
+modal.addEventListener("click",function(event){
+
+if(event.target !== modalImg){
+
+modal.style.display = "none";
+
+document.body.style.overflow = "auto";
+
+}
+
+});
+
+document.addEventListener("keydown",function(event){
+
+if(event.key === "Escape"){
+
+modal.style.display = "none";
+
+document.body.style.overflow = "auto";
+
+}
+
+});
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>About Us - FABLAB</title>
+
+<style>
+
+/* RESET */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+/* BODY */
+
+body{
+font-family:'Segoe UI',sans-serif;
+background:#f4f9ff;
+color:#333;
+line-height:1.8;
+}
+
+/* NAVBAR */
+
+.navbar{
+background:linear-gradient(135deg,#6bcee7,#8baadb);
+padding:18px 50px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:sticky;
+top:0;
+z-index:999;
+box-shadow:0 5px 20px rgba(0,0,0,0.08);
+}
+
+/* LOGO */
+
+.logo{
+display:flex;
+align-items:center;
+gap:15px;
+color:white;
+font-size:1.8rem;
+font-weight:700;
+letter-spacing:1px;
+}
+
+.logo img{
+width:60px;
+border-radius:14px;
+background:rgba(255,255,255,0.2);
+padding:6px;
+}
+
+/* LINKS */
+
+.nav-links{
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+}
+
+.nav-links a{
+color:white;
+text-decoration:none;
+padding:10px 18px;
+border-radius:12px;
+font-weight:600;
+transition:0.3s;
+}
+
+.nav-links a:hover{
+background:rgba(255,255,255,0.18);
+}
+
+/* MAIN CONTAINER */
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:50px 25px;
+}
+
+/* INTRO */
+
+.intro-box{
+background:linear-gradient(135deg,#6bcee7,#8baadb);
+color:white;
+padding:45px;
+border-radius:25px;
+text-align:center;
+margin-bottom:50px;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+.intro-box h2{
+font-size:2.5rem;
+margin-bottom:15px;
+}
+
+.intro-box p{
+font-size:1.1rem;
+max-width:850px;
+margin:auto;
+}
+
+/* CAROUSEL */
+
+.carousel{
+display:flex;
+gap:20px;
+overflow-x:auto;
+padding-bottom:10px;
+margin-bottom:50px;
+scroll-snap-type:x mandatory;
+}
+
+.carousel::-webkit-scrollbar{
+height:8px;
+}
+
+.carousel::-webkit-scrollbar-thumb{
+background:#b8c4d6;
+border-radius:20px;
+}
+
+.carousel-item{
+flex:0 0 auto;
+text-align:center;
+scroll-snap-align:center;
+}
+
+.carousel-item img{
+width:190px;
+height:190px;
+object-fit:cover;
+border-radius:20px;
+box-shadow:0 8px 20px rgba(0,0,0,0.12);
+transition:0.3s;
+}
+
+.carousel-item img:hover{
+transform:scale(1.04);
+}
+
+.carousel-item p{
+margin-top:10px;
+font-weight:600;
+color:#4b5563;
+}
+
+/* MEMBER CARDS */
+
+.member{
+display:flex;
+align-items:center;
+gap:25px;
+background:white;
+padding:25px;
+border-radius:22px;
+margin-bottom:30px;
+box-shadow:0 8px 25px rgba(0,0,0,0.08);
+transition:0.3s;
+}
+
+.member:hover{
+transform:translateY(-5px);
+}
+
+.member img{
+width:120px;
+height:120px;
+object-fit:cover;
+border-radius:50%;
+border:5px solid #eef6ff;
+}
+
+.member h3{
+font-size:1.5rem;
+color:#5d7fa3;
+margin-bottom:8px;
+}
+
+.member p{
+color:#555;
+}
+
+/* FOOTER */
+
+.footer{
+margin-top:50px;
+text-align:center;
+color:#6b7280;
+font-size:0.95rem;
+padding-bottom:30px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+.navbar{
+flex-direction:column;
+gap:20px;
+padding:20px;
+}
+
+.nav-links{
+justify-content:center;
+}
+
+.intro-box{
+padding:30px 20px;
+}
+
+.intro-box h2{
+font-size:2rem;
+}
+
+.member{
+flex-direction:column;
+text-align:center;
+}
+
+.member img{
+width:100px;
+height:100px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+<div class="logo">
+
+
+
+<span>FABLAB</span>
+
+</div>
+
+<div class="nav-links">
+
+<a href="index.html">Home</a>
+<a href="asigment1.html">Assignments</a>
+<a href="Practice/p1.html">Practices</a>
+<a href="EXAMEN_INTERCICLO.html">Interciclo</a>
+<a href="aboutus.html">About Us</a>
+
+</div>
+
+</nav>
+
+<!-- MAIN -->
+
+<div class="container">
+
+<!-- INTRO -->
+
+<div class="intro-box">
+
+<h2>Our Team</h2>
+
+<p>
+We are Industrial Engineering students passionate about
+innovation, creativity and digital fabrication within the FABLAB ecosystem.
+Our objective is to develop functional and innovative solutions through
+technology, teamwork and engineering.
+</p>
+
+</div>
+
+<!-- CAROUSEL -->
+
+<div class="carousel">
+
+<div class="carousel-item">
+<img src="images/About us/AboutCami.jpeg">
+<p>Camila</p>
+</div>
+
+<div class="carousel-item">
+<img src="images/About us/AboutDome.jpeg">
+<p>Doménica</p>
+</div>
+
+<div class="carousel-item">
+<img src="images/About us/AboutKerly.jpeg">
+<p>Kerly</p>
+</div>
+
+<div class="carousel-item">
+<img src="images/About us/AboutJairo.jpeg">
+<p>Jairo</p>
+</div>
+
+</div>
+
+<!-- MEMBERS -->
+
+<div class="member">
+
+<img src="images/About us/AboutCami.jpeg">
+
+<div>
+<h3>Camila Barros</h3>
+<p>Focused on creativity, innovation and design thinking.</p>
+<p>camila.barros@ucuenca.edu.ec</p>
+</div>
+
+</div>
+
+<div class="member">
+
+<img src="images/About us/AboutDome.jpeg">
+
+<div>
+<h3>Doménica Peña</h3>
+<p>Specialized in process optimization and analytical thinking.</p>
+<p>domenica.pena@ucuenca.edu.ec</p>
+</div>
+
+</div>
+
+<div class="member">
+
+<img src="images/About us/AboutKerly.jpeg">
+
+<div>
+<h3>Kerly Morales</h3>
+<p>Focused on teamwork, organization and project management.</p>
+<p>kerly.morales4@ucuenca.edu.ec</p>
+</div>
+
+</div>
+
+<div class="member">
+
+<img src="images/About us/AboutJairo.jpeg">
+
+<div>
+<h3>Jairo Andrade</h3>
+<p>Contributes with innovation and prototype development.</p>
+<p>jairo.andrade@ucuenca.edu.ec</p>
+</div>
+
+</div>
+
+<!-- FOOTER -->
+
+<div class="footer">
+
+FABLAB Portfolio • University of Cuenca • 2026
+
+</div>
+
+</div>
+
+</body>
+</html>

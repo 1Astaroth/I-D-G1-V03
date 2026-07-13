@@ -1,0 +1,149 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Sobre Nosotras - FabLab</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+
+    
+
+    <style>
+    /* Animación de entrada */
+    .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 1s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Imagen dinámica */
+    .img-hover {
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+        border-radius: 20px;
+    }
+
+    .img-hover:hover {
+        transform: scale(1.05);
+        box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    }
+
+    /* Tarjetas */
+    .card {
+        padding: 15px 20px;
+        border-radius: 12px;
+        background: #f4f4f4;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+    </style>
+
+</head>
+<body class="is-preload">
+
+<div id="wrapper">
+
+    <!-- Header -->
+    <header id="header">
+        <h1><a href="index.html">FabLab</a></h1>
+        <nav class="links">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="#">Proyectos</a></li>
+                <li><a href="#">Servicios</a></li>
+                <li><a href="about.html">Sobre Nosotras</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main -->
+    <div id="main">
+
+        <article class="post fade-in">
+            <header>
+                <div class="title">
+                    <h2>Sobre Nosotras</h2>
+                    <p style="font-size: 1.1em; color: #777;">
+                        Innovación, creatividad y prototipado en acción
+                    </p>
+                </div>
+            </header>
+
+            <div style="display: flex; gap: 30px; align-items: center; flex-wrap: wrap;">
+
+                <!-- Imagen -->
+                <div style="flex: 1; min-width: 250px;">
+                    <img src="images/w01_grupo.jpeg" alt="Equipo FabLab"
+                        class="img-hover"
+                        style="width: 100%; max-width: 350px;">
+                </div>
+
+                <!-- Texto -->
+                <div style="flex: 2; min-width: 250px;">
+                    <p style="font-size: 1.1em;">
+                        ¡Hola! Somos <strong>Cami, Dome y Kerly</strong>, estudiantes de Ingeniería Industrial de la Universidad de Cuenca, Ecuador.
+                    </p>
+
+                    <p>
+                        Actualmente estamos desarrollando un prototipo funcional como parte de nuestro proyecto de I+D dentro de la red de FabLabs. 
+                        Nuestro objetivo es combinar <strong>creatividad, innovación y pensamiento práctico</strong> para crear soluciones con impacto.
+                    </p>
+                </div>
+
+            </div>
+
+            <h3 style="margin-top: 30px;">Contáctanos</h3>
+
+            <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                <div class="card">📧 domenica.pena@ucuenca.edu.ec</div>
+                <div class="card">📧 camila.barros@ucuenca.edu.ec</div>
+                <div class="card">📧 kerly.morales4@ucuenca.edu.ec</div>
+            </div>
+
+        </article>
+
+    </div>
+
+    <!-- Sidebar -->
+    <section id="sidebar">
+
+        <section id="intro">
+            <header>
+                <h2>FabLab</h2>
+                <p>Innovación, diseño y prototipado</p>
+            </header>
+        </section>
+
+        <section class="blurb">
+            <h2>Sobre Nosotras</h2>
+            <p>
+                Estudiantes desarrollando soluciones innovadoras dentro de la red FabLab.
+            </p>
+        </section>
+
+        <section id="footer">
+            <p class="copyright">&copy; FabLab Proyecto I+D</p>
+        </section>
+
+    </section>
+
+</div>
+
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>

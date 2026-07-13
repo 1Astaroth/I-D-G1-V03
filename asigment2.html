@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Assignment 2 - Ruleta Electrónica</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family: Arial, sans-serif;
+background:#f4f9ff;
+color:#333;
+line-height:1.6;
+}
+
+.navbar{
+background: linear-gradient(135deg,#6bcee7,#8baadb);
+padding:20px 50px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+box-shadow:0 5px 20px rgba(0,0,0,.15);
+}
+
+.logo{
+color:white;
+font-size:2rem;
+font-weight:bold;
+}
+
+.nav-links{
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+}
+
+.nav-links a{
+color:white;
+text-decoration:none;
+padding:10px 18px;
+border-radius:10px;
+font-weight:600;
+transition:.3s;
+}
+
+.nav-links a:hover{
+background:rgba(255,255,255,.2);
+}
+
+#header{
+background:linear-gradient(135deg,#49bf9d,#639c88);
+color:white;
+padding:1.8rem;
+text-align:center;
+}
+
+.main-container{
+max-width:1200px;
+margin:auto;
+padding:2rem;
+}
+
+.content{
+background:white;
+padding:2rem;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.1);
+}
+
+.etapa-header{
+background:linear-gradient(135deg,#49bf9d,#10b981);
+color:white;
+padding:1.2rem;
+border-radius:15px;
+margin:2rem 0;
+text-align:center;
+}
+
+.intro-box{
+background:#eefaf6;
+padding:1.5rem;
+border-left:5px solid #359d64;
+border-radius:10px;
+margin-bottom:2rem;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:20px;
+margin-top:20px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0 5px 20px rgba(0,0,0,.08);
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+.card img{
+width:100%;
+height:220px;
+object-fit:cover;
+border-radius:12px;
+margin-top:15px;
+}
+
+.card-images{
+display:flex;
+gap:10px;
+margin-top:15px;
+}
+
+.card-images img{
+width:50%;
+height:180px;
+object-fit:cover;
+}
+
+.download-box{
+text-align:center;
+padding:30px;
+background:#eefaf6;
+border-radius:15px;
+margin-top:20px;
+}
+
+.download-box a{
+display:inline-block;
+margin:10px;
+padding:12px 20px;
+background:#49bf9d;
+color:white;
+text-decoration:none;
+border-radius:10px;
+}
+
+.download-box a:hover{
+background:#2d9f7e;
+}
+
+@media(max-width:768px){
+
+.navbar{
+flex-direction:column;
+gap:15px;
+}
+
+.card-images{
+flex-direction:column;
+}
+
+.card-images img{
+width:100%;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+
+<div class="logo">
+FABLAB
+</div>
+
+<div class="nav-links">
+<a href="index.html">Home</a>
+<a href="asigment2.html">Assignments</a>
+<a href="Practice/p1.html">Practices</a>
+<a href="EXAMEN_INTERCICLO.html">Interciclo</a>
+<a href="aboutus.html">About Us</a>
+</div>
+
+</nav>
+
+<header id="header">
+<h1>🎰 Assignment 2 - Ruleta Electrónica</h1>
+</header>
+
+<div class="main-container">
+<div class="content">
+
+<div style="text-align:center;margin-bottom:30px;">
+<img src="images/Ruleta/cajalistaconplaca.png"
+style="width:60%;border-radius:15px;">
+</div>
+
+<div class="intro-box">
+
+<p>
+Este proyecto consistió en el diseño y fabricación de una ruleta electrónica utilizando Arduino Nano,
+siete LEDs, resistencias y un pulsador. El trabajo involucró simulación, diseño electrónico,
+fabricación de PCB, programación y desarrollo de una carcasa personalizada mediante fabricación digital.
+</p>
+
+</div>
+
+<div class="etapa-header">
+<h2>Socialización del Proyecto</h2>
+</div>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>Presentación inicial</h3>
+
+<p>
+Durante la socialización se explicaron los requerimientos generales del proyecto y los criterios de fabricación.
+Además, se mostraron ejemplos de proyectos similares para comprender el funcionamiento esperado.
+</p>
+
+<p>
+También se dieron recomendaciones para el diseño de la PCB, el uso de KiCad, simulación previa en Wokwi
+y consideraciones sobre el ancho de pistas para evitar problemas durante el grabado.
+</p>
+
+<img src="images/Ruleta/socializacion1.png">
+
+</div>
+
+</div>
+
+<div class="etapa-header">
+<h2>Simulación en Wokwi</h2>
+</div>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>Diseño inicial</h3>
+
+<p>
+La primera etapa consistió en desarrollar el circuito virtual utilizando Arduino Nano,
+siete LEDs, siete resistencias y un pulsador.
+</p>
+
+<p>
+Esto permitió organizar las conexiones y verificar la lógica de funcionamiento antes de fabricar la placa.
+</p>
+
+<img src="images/Ruleta/wokwi1.png">
+
+</div>
+
+<div class="card">
+
+<h3>Validación</h3>
+
+<p>
+Una vez completadas las conexiones, se realizaron pruebas para comprobar la secuencia de encendido
+y el comportamiento de la ruleta electrónica.
+</p>
+
+<p>
+La simulación ayudó a corregir errores de conexión y optimizar el programa antes de pasar al diseño físico.
+</p>
+
+<img src="images/Ruleta/wokwi2.png">
+
+</div>
+
+</div>
+<div class="etapa-header">
+<h2>Diseño Electrónico en KiCad</h2>
+</div>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>Esquemático electrónico</h3>
+
+<p>
+Después de validar el circuito en Wokwi se inició el desarrollo del esquemático en KiCad.
+Cada componente fue incorporado utilizando las librerías correspondientes y se asignaron
+correctamente las conexiones entre el Arduino Nano, LEDs, resistencias y pulsador.
+</p>
+
+<p>
+Esta etapa permitió generar una representación formal del circuito y verificar que todas
+las conexiones estuvieran correctamente definidas antes de diseñar la placa.
+</p>
+
+<img src="images/Ruleta/kicad1.png">
+
+</div>
+
+<div class="card">
+
+<h3>Diseño PCB</h3>
+
+<p>
+Posteriormente se realizó el diseño de la placa de circuito impreso. Se distribuyeron los
+componentes considerando la forma circular de la ruleta para lograr una mejor organización
+y una apariencia más atractiva.
+</p>
+
+<p>
+También se diseñaron las pistas de conexión respetando las recomendaciones indicadas durante
+la clase para facilitar el proceso de fabricación y evitar cortocircuitos.
+</p>
+
+<img src="images/Ruleta/kicad2.png">
+
+</div>
+
+</div>
+
+<div class="etapa-header">
+<h2>Visualización 3D</h2>
+</div>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>Verificación del diseño</h3>
+
+<p>
+Antes de fabricar la PCB se utilizó la herramienta de visualización 3D de KiCad para
+comprobar la ubicación de todos los componentes y verificar posibles interferencias.
+</p>
+
+<p>
+Esta revisión permitió observar una representación cercana al resultado final y realizar
+correcciones antes de fabricar la placa física.
+</p>
+
+<img src="images/Ruleta/kicad3.png">
+
+</div>
+
+</div>
+
+<div class="etapa-header">
+<h2>Fabricación de la PCB</h2>
+</div>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>Corte de la geometría</h3>
+
+<p>
+La forma de la ruleta fue preparada utilizando herramientas de fabricación digital.
+Se realizó el corte de la geometría que serviría como base para la placa electrónica.
+</p>
+
+<img src="images/Ruleta/cortadoralaser.png">
+
+</div>
+
+<div class="card">
+
+<h3>Grabado de pistas</h3>
+
+<p>
+Una vez generado el archivo de fabricación, se procedió al grabado de las pistas sobre
+la placa de cobre. Este proceso permitió transferir el diseño realizado en KiCad al material físico.
+</p>
+
+<img src="images/Ruleta/grabacionplaca.png">
+
+</div>
+
+<div class="card">
+
+<h3>Pruebas de continuidad</h3>
+
+<p>
+Después del grabado se verificó la continuidad de las pistas mediante instrumentos de medición.
+En algunos sectores fue necesario retirar pequeñas zonas de cobre utilizando herramientas manuales.
+</p>
+
+<p>
+Esta revisión permitió garantizar el correcto aislamiento entre pistas antes de soldar componentes.
+</p>
+
+<img src="images/Ruleta/continuidad.png">
+
+</div>
+
+<div class="card">
+
+<h3>Perforación</h3>
+
+<p>
+Finalmente se realizaron los agujeros necesarios para el montaje de los componentes electrónicos.
+El taladrado permitió preparar la placa para la siguiente etapa de ensamblaje.
+</p>
+
+<img src="images/Ruleta/taladro.png">
+
+</div>
+
+</div>
+<div class="etapa-header">
+<h2>Ensamblaje Electrónico</h2>
+</div>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>Montaje de componentes</h3>
+
+<p>
+Una vez terminada la fabricación de la PCB se inició el proceso de ensamblaje. Se colocaron
+los siete LEDs, las siete resistencias, el pulsador, las peinetas de conexión y el Arduino Nano.
+</p>
+
+<p>
+Durante esta etapa se verificó constantemente la orientación de los componentes para evitar
+errores que pudieran afectar el funcionamiento del circuito.
+</p>
+
+<img src="images/Ruleta/placa.png">
+
+</div>
+
+<div class="card">
+
+<h3>Integración del sistema</h3>
+
+<p>
+Después de soldar todos los componentes se realizaron pruebas eléctricas para comprobar que
+las conexiones estuvieran correctamente realizadas y que la alimentación llegara a todos los puntos necesarios.
+</p>
+
+<p>
+Estas verificaciones permitieron asegurar que la placa estuviera lista para la programación final.
+</p>
+
+<img src="images/Ruleta/placa.png">
+
+</div>
+
+</div>
+
+<div class="etapa-header">
+<h2>Programación Arduino</h2>
+</div>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>Desarrollo del código</h3>
+
+<p>
+Con la placa ensamblada se procedió a desarrollar el programa para el Arduino Nano.
+Se configuraron los pines correspondientes a los LEDs y al pulsador de activación.
+</p>
+
+<p>
+El código fue desarrollado de forma progresiva, realizando pruebas constantes para validar
+cada función implementada.
+</p>
+
+<img src="images/Ruleta/clasearduino.png">
+
+</div>
+
+<div class="card">
+
+<h3>Funcionamiento de la ruleta</h3>
+
+<p>
+El programa permite que la ruleta se active únicamente cuando el usuario presiona el pulsador.
+A partir de ese momento los LEDs comienzan una secuencia de encendido simulando el giro de una ruleta.
+</p>
+
+<p>
+La velocidad disminuye gradualmente hasta detenerse en una posición aleatoria,
+dejando encendido un único LED como resultado final.
+</p>
+
+<img src="images/Ruleta/arduino.png">
+
+</div>
+
+<div class="card">
+
+<h3>Pruebas finales</h3>
+
+<p>
+Una vez cargado el programa se realizaron múltiples pruebas para verificar la estabilidad
+del sistema y comprobar que cada activación generara resultados aleatorios.
+</p>
+
+<p>
+Estas pruebas permitieron confirmar el correcto funcionamiento del proyecto completo.
+</p>
+
+<img src="images/Ruleta/arduino.png">
+
+</div>
+
+</div>
+
+<div class="etapa-header">
+<h2>Diseño e Impresión del Case</h2>
+</div>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>Diseño CAD</h3>
+
+<p>
+Para proteger el circuito y mejorar la presentación del proyecto se diseñó una carcasa personalizada.
+El modelo fue desarrollado considerando la forma de engranaje utilizada en la PCB.
+</p>
+
+<p>
+También se incorporó un espacio para la tapa transparente y para los elementos electrónicos internos.
+</p>
+
+<img src="images/Ruleta/diseñocajaenfusion.png">
+
+</div>
+
+<div class="card">
+
+<h3>Fabricación</h3>
+
+<p>
+Una vez finalizado el diseño se procedió a la impresión de la carcasa mediante fabricación aditiva.
+Posteriormente se realizó el corte de la tapa de acrílico que cubriría la parte superior del proyecto.
+</p>
+
+<div class="card-images">
+
+<img src="images/Ruleta/impresioncaja1.png">
+
+<img src="images/Ruleta/cortetapa.png">
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>Integración final</h3>
+
+<p>
+Finalmente se ensambló la placa electrónica dentro de la carcasa impresa y se instaló la tapa acrílica.
+Esto permitió obtener un producto más seguro, resistente y visualmente atractivo.
+</p>
+
+<p>
+El resultado fue una ruleta electrónica completamente funcional y lista para su utilización.
+</p>
+
+<img src="images/Ruleta/cajalistaconplaca.png">
+
+</div>
+
+</div>
+<div class="etapa-header">
+<h2>Resultados del Proyecto</h2>
+</div>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>Simulación Validada</h3>
+
+<p>
+La simulación realizada en Wokwi permitió comprobar el correcto funcionamiento del circuito
+antes de fabricar la placa física.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>PCB Fabricada</h3>
+
+<p>
+Se logró diseñar y fabricar una placa personalizada basada en el esquema desarrollado en KiCad.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Sistema Programado</h3>
+
+<p>
+El Arduino Nano ejecuta correctamente la secuencia de la ruleta y selecciona un resultado aleatorio.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Producto Funcional</h3>
+
+<p>
+La integración entre electrónica, programación y fabricación digital permitió obtener una ruleta completamente operativa.
+</p>
+
+</div>
+
+</div>
+
+<div class="etapa-header">
+<h2>Aprendizajes Obtenidos</h2>
+</div>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>Electrónica</h3>
+
+<p>
+Se reforzaron conocimientos relacionados con componentes electrónicos, conexiones, polaridad y pruebas eléctricas.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>KiCad</h3>
+
+<p>
+Se aprendió a desarrollar esquemáticos, asignar huellas y diseñar placas de circuito impreso.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Arduino</h3>
+
+<p>
+Se implementaron estructuras de programación para controlar LEDs, pulsadores y secuencias automáticas.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Fabricación Digital</h3>
+
+<p>
+Se aplicaron procesos de grabado de PCB, perforación, impresión 3D y corte de acrílico.
+</p>
+
+</div>
+
+</div>
+
+<div class="etapa-header">
+<h2>Conclusión</h2>
+</div>
+
+<div class="intro-box">
+
+<p>
+El proyecto permitió integrar distintas áreas de la fabricación digital en una única solución funcional.
+Durante el desarrollo se aplicaron conocimientos de diseño electrónico, programación, manufactura y modelado 3D.
+</p>
+
+<p>
+La ruleta electrónica final cumple con los objetivos planteados inicialmente, demostrando la importancia
+de la simulación previa, el diseño adecuado de la PCB y la validación constante durante cada etapa del proceso.
+</p>
+
+</div>
+
+<div class="etapa-header">
+<h2>Descargables</h2>
+</div>
+
+<div class="download-box">
+
+<h3>Archivos del Proyecto</h3>
+
+<p>
+A continuación se incluyen los archivos desarrollados durante la realización del proyecto.
+</p>
+
+<a href="Assignment/assignment2_descargables/">
+📁 Proyecto KiCad
+</a>
+
+<a href="Assignment/assignment2_descargables/">
+💻 Código Arduino
+</a>
+
+<a href="Assignment/assignment2_descargables/">
+🖨️ Archivos STL
+</a>
+
+<a href="Assignment/assignment2_descargables/">
+📦 Diseño del Case
+</a>
+
+</div>
+
+</div>
+</div>
+
+</body>
+</html>

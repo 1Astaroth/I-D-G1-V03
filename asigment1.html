@@ -1,0 +1,810 @@
+<style>
+    /* NAVBAR */
+
+.navbar{
+background: linear-gradient(135deg, #6bcee7, #8baadb);
+padding:20px 50px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+box-shadow:0 5px 20px rgba(0,0,0,0.15);
+position:sticky;
+top:0;
+z-index:999;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:15px;
+color:white;
+font-size:2rem;
+font-weight:bold;
+letter-spacing:2px;
+}
+
+.nav-links{
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+}
+
+.nav-links a{
+color:white;
+text-decoration:none;
+padding:10px 18px;
+border-radius:10px;
+font-weight:600;
+transition:0.3s;
+}
+
+.nav-links a:hover{
+background:rgba(255,255,255,0.2);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+.navbar{
+flex-direction:column;
+gap:20px;
+padding:20px;
+}
+
+.nav-links{
+justify-content:center;
+flex-wrap:wrap;
+}
+
+}
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        background: #f4f9ff;
+        color: #333;
+    }
+
+    /* HEADER */
+    #header {
+        background: linear-gradient(135deg, hsl(165, 37%, 47%), #639c88);
+        color: white;
+        padding: 1.5rem 2rem;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+
+    #header h1 a {
+        color: white;
+        text-decoration: none;
+        font-size: 2rem;
+    }
+
+    /* MAIN */
+    .main-container {
+        max-width: 1200px;
+        margin: auto;
+        padding: 2rem;
+    }
+
+    .content {
+        background: white;
+        padding: 2rem;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    /* ETAPAS */
+    .etapa-header {
+        background: linear-gradient(135deg, #49bf9d, #10b981);
+        color: white;
+        padding: 1.5rem;
+        border-radius: 15px;
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
+
+    .intro-box {
+        background: #eefaf6;
+        padding: 1.5rem;
+        border-left: 5px solid #359d64;
+        border-radius: 10px;
+        margin-bottom: 2rem;
+    }
+
+    /* CARDS */
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 20px;
+        margin-bottom: 2rem;
+        align-items: stretch;
+    }
+
+    .card {
+        background: #ffffff;
+        border-radius: 15px;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        transition: 0.3s;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+    }
+
+    .card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 12px;
+        margin-top: 10px;
+    }
+
+    .card-icon {
+        font-size: 1.5rem;
+        color: #49bf9d;
+        margin-bottom: 10px;
+    }
+
+    .card-text {
+        margin-top: 10px;
+        font-size: 0.95em;
+        color: #555;
+    }
+
+    /* IMÁGENES DOBLES */
+    .card-images {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        margin-top: 15px;
+        flex-wrap: wrap;
+    }
+
+    .card-images img {
+        width: 48%;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        border-radius: 12px;
+        transition: 0.3s;
+    }
+
+    .card-images img:hover {
+        transform: scale(1.05);
+    }
+
+    /* DASHBOARD */
+    .dashboard-cards {
+        display: flex;
+        gap: 20px;
+        justify-content: space-between;
+        margin-top: 30px;
+        flex-wrap: wrap;
+    }
+
+    .dashboard-cards .card {
+        flex: 1;
+        min-width: 200px;
+        padding: 25px 15px;
+        text-align: center;
+        border-radius: 18px;
+    }
+
+    .dashboard-cards .card h2 {
+        font-size: 2.2rem;
+        color: #49bf9d;
+        margin-bottom: 5px;
+    }
+
+    /* STAGE 3 GRID */
+    .stage3-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 25px;
+        margin-top: 30px;
+    }
+
+    /* TARJETAS GRANDES */
+    .wide-card {
+        display: flex;
+        gap: 25px;
+        align-items: center;
+        padding: 25px;
+        margin-bottom: 20px;
+    }
+
+    .wide-card .text {
+        flex: 2;
+        text-align: left;
+    }
+
+    .wide-card .images {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .wide-card .images img {
+        width: 100%;
+        height: 140px;
+        object-fit: cover;
+        border-radius: 12px;
+    }
+
+    /* HIGHLIGHT */
+    .highlight-text {
+        background: #eefaf6;
+        border-left: 5px solid #49bf9d;
+        padding: 1.5rem;
+        border-radius: 10px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+        .wide-card {
+            flex-direction: column;
+        }
+
+        .card-images img {
+            width: 100%;
+        }
+
+        .dashboard-cards {
+            flex-direction: column;
+        }
+    }
+</style>
+
+    </style>
+</head>
+
+<body>
+    <!-- NAVBAR -->
+
+<nav class="navbar">
+
+<div class="logo">
+
+
+
+<span>FABLAB</span>
+
+</div>
+
+<div class="nav-links">
+
+<a href="index.html">Home</a>
+
+<a href="asigment1.html">Assignments</a>
+
+<a href="Practice/p1.html">Practices</a>
+
+<a href="EXAMEN_INTERCICLO.html">Interciclo</a>
+
+<a href="aboutus.html">About Us</a>
+
+</div>
+
+</nav>
+
+<header id="header">
+    <h1><a href="index.html">Assigment 1</a></h1>
+</header>
+
+<div class="main-container">
+<div class="content">
+
+    <!-- IMAGEN -->
+    <div style="text-align: center; margin: 2rem 0;">
+        <img src="images/w01/Campus.jpg" style="width:60%; border-radius:13px; margin-bottom:18px;">
+    </div>
+
+    <!-- ETAPA 1 -->
+    <div class="intro-box">
+        <p>
+            El problema identificado fue la baja hidratación en el campus Balzay. 
+            Se realizó una lluvia de ideas, investigación web y registro en una base de datos para identificar causas y posibles soluciones.    
+        </p>
+    </div>
+
+    <div class="etapa-header">
+        <h2>📋 Etapa 1</h2>
+        <p>Selección de problemática y generación de ideas</p>
+    </div>
+
+    <div class="cards">
+
+        <div class="card big-card">
+            <i class="fas fa-bullseye card-icon"></i>
+            <h4>Identificación</h4>
+            <p>
+                Espacio para registrar todas las posibles causas del problema...
+            </p>
+
+            <div class="card-images">
+                <img src="images/w01/Semana1_1.png">
+                <img src="images/w01/semana1_2.jpeg">
+            </div>
+        </div>
+
+        <div class="card">
+            <h4>Solutions research</h4>
+            <p class="card-text">
+                Registro de ideas en una base de datos colectiva...
+            </p>
+            <i class="fas fa-brain card-icon"></i>
+            <img src="images/w01/Etapa1.1.png">
+        </div>
+
+        <div class="card">
+            <h4>Resultados</h4>
+            <p>
+                Se identificaron causas como falta de acceso...
+            </p>
+            <img src="images/w01/semana1_3.jpg" 
+            style="width:80%; height:200px; object-fit:cover; border-radius:15px; margin:1rem auto 0; display:block;">
+        </div>
+        
+                    <!-- APPENDIX - DASHBOARD -->
+
+<!-- DASHBOARD (las 4 de abajo) -->
+                <div class="dashboard-cards">
+
+                    <div class="card stat-card">
+                        <h2>3</h2>
+                        <p>Main causes identified</p>
+                    </div>
+
+                    <div class="card stat-card">
+                        <h2>+20</h2>
+                        <p>Ideas generated</p>
+                    </div>
+
+                    <div class="card stat-card">
+                        <h2>5</h2>
+                        <p>Key factors analyzed</p>
+                    </div>
+
+                    <div class="card stat-card">
+                        <h2>100%</h2>
+                        <p>Team participation</p>
+                    </div>
+
+    </div>
+    </div>
+
+    <!-- ===================== STAGE 2 ===================== -->
+
+<div class="etapa-header">
+    <h2>✏️ Stage 2</h2>
+    <p>Sketch Development & Solution Selection</p>
+</div>
+
+<!-- IMAGEN PRINCIPAL -->
+<div style="text-align: center; margin-bottom: 25px;">
+    <img src="images/w02/semana2_011.jpeg" 
+         style="width:50%; border-radius:15px; box-shadow:0 7px 10px rgba(0,0,0,0.2);">
+</div>
+
+<!-- INTRO -->
+<div class="intro-box">
+    <p>
+        In this second stage of the project, the team focused on the <strong>development of sketches</strong> 
+        based on previously selected ideas. After analyzing the alternatives, the most viable proposals 
+        were defined to continue with the project development within the FabLab environment.
+    </p>
+</div>
+
+<!-- DESCRIPCIÓN -->
+<h3 class="custom-title">Activity Description</h3>
+<div class="card big-card">
+    <p>
+        Once the most relevant ideas were grouped, the <strong>three most viable solutions</strong> were analyzed. 
+        Each proposal was then represented through hand-drawn sketches in order to better visualize 
+        their characteristics, functionality, and feasibility.
+    </p>
+
+    <p>
+        After evaluating the alternatives, it was concluded that the most viable option for development 
+        in the FabLab is a <strong>filtered water bottle</strong>, adapted to the needs of students.
+    </p>
+</div>
+
+<!-- PROCESO -->
+<h3 class="custom-title">Process</h3>
+<div class="cards">
+
+    <div class="card">
+        <img src="images/w02/semana2_00.jpeg">
+        <h4>Idea Grouping</h4>
+        <p>
+            The most relevant ideas from the previous stage were organized into structured groups 
+            to facilitate comparison and analysis.
+        </p>
+    </div>
+
+    <div class="card">
+        <img src="images/w02/semana2_1.jpeg">
+        <h4>Solution Selection</h4>
+        <p>
+            Three main alternatives were selected based on feasibility, impact, and practicality.
+        </p>
+    </div>
+
+    <div class="card">
+        <img src="images/w02/semana1_boceto.jpeg">
+        <h4>Sketch Development</h4>
+        <p>
+            Hand-drawn sketches were created to represent each proposal and better understand 
+            their design and functionality.
+        </p>
+    </div>
+
+    <div class="card">
+        <img src="images/w02/semana2_33.jpeg">
+        <h4>Final Decision</h4>
+        <p>
+            The filtered bottle concept was selected as the most viable solution for implementation.
+        </p>
+    </div>
+
+</div>
+
+<!-- RESULTADOS -->
+<h3 class="custom-title">Results</h3>
+<div class="cards">
+
+    <div class="card">
+        <h4>✔ Idea Analysis</h4>
+        <p>
+            The most relevant ideas were grouped and analyzed to identify patterns and opportunities.
+        </p>
+    </div>
+
+    <div class="card">
+        <h4>✔ Viable Solutions</h4>
+        <p>
+            Three feasible alternatives were identified and evaluated in detail.
+        </p>
+    </div>
+
+    <div class="card">
+        <h4>✔ Visual Representation</h4>
+        <p>
+            Sketches allowed a clearer understanding of each concept and its potential.
+        </p>
+    </div>
+
+    <div class="card">
+        <h4>✔ Final Selection</h4>
+        <p>
+            The filtered bottle was chosen as the most suitable solution for development.
+        </p>
+    </div>
+
+</div>
+
+<!-- HIGHLIGHT -->
+<div class="highlight-text" style="margin-top:30px;">
+    <p>
+        The sketching process played a key role in visualizing and comparing each proposal. 
+        This approach allowed the team to clearly identify the most feasible solution 
+        for development within the FabLab.
+    </p>
+</div>
+
+<!-- APRENDIZAJES -->
+<h3 class="custom-title">Key Learnings</h3>
+<div class="cards">
+
+    <div class="card">
+        <h4>Decision Making</h4>
+        <p>
+            Comparing multiple solutions is essential before selecting a final proposal.
+        </p>
+    </div>
+
+    <div class="card">
+        <h4>Visual Thinking</h4>
+        <p>
+            Sketching is a powerful tool to represent and communicate ideas effectively.
+        </p>
+    </div>
+
+    <div class="card">
+        <h4>Teamwork</h4>
+        <p>
+            Collaboration enhances the quality of analysis and decision-making processes.
+        </p>
+    </div>
+
+    <div class="card">
+        <h4>User Focus</h4>
+        <p>
+            Solutions must be functional and adapted to real user needs.
+        </p>
+    </div>
+
+</div>
+    <!-- ETAPA 3 -->
+   <!-- ===================== STAGE 3 ===================== -->
+
+<div class="etapa-header">
+    <h2>📈 Stage 3</h2>
+    <p>Quantitative Analysis of Critical Factors</p>
+</div>
+
+<!-- IMAGEN PRINCIPAL -->
+<div style="text-align: center; margin-bottom: 25px;">
+    <img src="images/w03/semana3_1.png" 
+         style="width:70%; border-radius:15px; box-shadow:0 10px 30px rgba(0,0,0,0.2);">
+</div>
+
+<!-- INTRO -->
+<div class="intro-box">
+    <p>
+        In this stage, a <strong>quantitative analysis</strong> was conducted to identify the most influential 
+        factors affecting hydration issues on campus. The study was based on data collected through surveys, 
+        allowing a structured and statistical evaluation of the problem.
+    </p>
+</div>
+
+<!-- GRID PRINCIPAL -->
+<div class="cards">
+
+    <!-- OBJECTIVE -->
+    <div class="card big-card">
+        <img src="images/w03/semana3_1.jpg">
+        <h3>Objective</h3>
+        <p>
+            The objective of this stage is to identify and evaluate the most influential factors affecting 
+            hydration issues within the Balzay campus. This analysis is based on data collected from students, 
+            allowing the classification of failures into key categories such as design, cost, infrastructure, 
+            and salubrity.
+        </p>
+        <p>
+            By organizing the information into comparable groups, it becomes possible to apply statistical 
+            methods that support decision-making and guide the development of the prototype.
+        </p>
+    </div>
+
+    <!-- METHODOLOGY -->
+    <div class="card big-card">
+        <img src="images/w03/semana3_r.png">
+        <h3>Methodology</h3>
+        <p>
+            Data was collected through surveys applied to students, where each factor was evaluated 
+            on a scale from 1 to 5 according to its perceived importance.
+        </p>
+        <p>
+            The dataset was processed using <strong>RStudio</strong>, applying techniques such as data normalization, 
+            boxplot analysis, and hypothesis testing. These methods allowed identifying patterns, trends, 
+            and variability among the evaluated factors.
+        </p>
+    </div>
+
+   <div class="cards">
+
+    <!-- Data Collection -->
+    <div class="card big-card">
+        <img src="images/w03/semana3_2.png">
+        <h3>Data Collection</h3>
+        <p>
+            The database is structured in a tabular format, where each <strong>row represents an individual response</strong> 
+        and each <strong>column corresponds to a specific critical factor</strong>. These factors include:
+        <strong>design, materials, cost, location, functionality, salubrity, culture, infrastructure, 
+        and administrative management</strong>..
+        </p>
+    </div>
+
+    <!-- Distribution Analysis -->
+    <div class="card big-card">
+        <img src="images/w03/semana3_3.png">
+        <h3>Distribution Analysis</h3>
+        <p>
+            
+Boxplots were used to analyze the distribution of responses for each factor,   allowing the identification of central tendencies, variability, and potential outliers. This visual analysis provided insights into how students perceive each critical factor and their relative importance in relation to hydration issues on campus.
+        </p>
+            
+           <p>
+                The results show that factors such as <strong>salubrity, cost, and infrastructure</strong> 
+                tend to have higher median values, indicating that they are perceived as more important 
+                by most participants. In contrast, other factors present greater dispersion, suggesting 
+                variability in user opinions.
+            </p> 
+    </div>
+
+</div>
+
+            <!-- DEVELOPMENT -->
+            <div class="card wide-card">
+
+                <div class="text">
+                    <h3>Development</h3>
+                    <p>
+                        The relatively high concentration of values between 3 and 5 suggests that most factors 
+                        are considered relevant, but with varying degrees of importance.
+                    </p>
+
+                    <div class="priorities-section">
+                        <!-- PRIORIDAD CRÍTICA -->
+                        <div class="priority-card critical">
+                            <div class="priority-icon">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <h3>Critical Priority</h3>
+                            <p class="priority-highlight">
+                                <strong>Salubridad (Hygiene)</strong> is positioned as the 
+                                <strong>absolute determining factor</strong>. It is the only criterion 
+                                with a <strong>perfect score of 5</strong>, indicating that any technical 
+                                solution is <strong>unviable</strong> if it does not first guarantee 
+                                water hygiene and potability.
+                            </p>
+                            
+                        </div>
+
+                        <!-- PRIORIDAD ALTA -->
+                        <div class="priority-card high">
+                            <div class="priority-icon">
+                                <i class="fas fa-fire"></i>
+                            </div>
+                            <h3>High Priority</h3>
+                            <p>
+                                In this group are found: <strong>Cost, Infrastructure, Location, Design, and Material</strong>.
+                            </p>
+                            <div class="priority-score">Score: <strong>4/5 ★★★★☆</strong></div>
+                        </div>
+
+                        <!-- PRIORIDAD MODERADA -->
+                        <div class="priority-card moderate">
+                            <div class="priority-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3>Moderate Priority</h3>
+                            <p>
+                                Factors such as <strong>Administrative Management, Culture/Social Factor, 
+                                and Environmental Factors</strong> occupy the last place in the ranking.
+                            </p>
+                            <div class="priority-score">Score: <strong>3/5 ★★★☆☆</strong></div>
+                        </div>
+</div>
+                </div>
+
+                <div class="images">
+                    <img src="images/w03/semana3_4.png">
+                </div>
+
+            </div>
+
+            <!--  RESULTS  -->
+           <!-- RESULTADOS ESTADÍSTICOS - DIRECTOS -->
+<div class="stats-results pure">
+    <h3 style="color: #49bf9d; margin-bottom: 2rem; text-align: center;">Statistical Results</h3>
+
+    <!-- HIPÓTESIS -->
+    <div class="result-row">
+        <div class="result-text">
+            <h4>Hypothesis Test</h4>
+            <p>p-value < 0.05 → Reject H₀ → Model is significant</p>
+            <p>Significant differences exist between analyzed factors</p>
+        </div>
+        <img src="images/w03/semana3_5.png" style="width: 300px; height: 200px; object-fit: cover; border-radius: 10px;">
+    </div>
+
+    <!-- VARIABLES SIGNIFICATIVAS -->
+    <div class="result-row">
+        <div class="result-text">
+            <h4>Significant Variables (p < 0.05)</h4>
+            <ul style="margin: 0; padding-left: 1.5rem;">
+                <li>Environmental: p = 0.04388</li>
+                <li>Salubrity: p = 0.00325</li>
+                <li>Social/Culture: p = 0.01087</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- NORMALIDAD -->
+    <div class="result-row">
+        <div class="result-text">
+            <h4>Normality Test</h4>
+            <p>Data is normal → H₀ accepted → Analysis valid</p>
+        </div>
+        <img src="images/w03/semana3_7.png" style="width: 300px; height: 200px; object-fit: cover; border-radius: 10px;">       
+
+    </div>
+
+           <!-- CONCLUSIÓN FINAL - WIDE CARD -->
+        <div class="card wide-card conclusion-final">
+                        <div class="text">
+                            <h3>🎯 Key Conclusions</h3>
+                            <div class="conclusion-points">
+                                <div class="point">
+                                    <strong>#1 Salubridad</strong> - Absolute priority (5/5)
+                                </div>
+                                <div class="point">
+                                    <strong>#2 Costo & Infraestructura</strong> - Essential for viability
+                                </div>
+                                <div class="point">
+                                    <strong>Model Significant</strong> - p < 0.05 (3 key factors)
+                                </div>
+                                <div class="point">
+                                    <strong>32 Students Surveyed</strong> - Solid statistical base
+                                </div>
+                            </div>
+                            <p class="final-note">
+                                <strong>Prototype Priority:</strong> Hygiene first, then cost & infrastructure
+                            </p>
+                        </div>
+                        <div class="images">
+                            <img src="images/w03/semana3_6.png" alt="Conclusions">
+                        </div>
+                    </div>
+                
+
+
+<!-- ===================== APPENDIX / DOWNLOADS ===================== -->
+
+<div class="etapa-header">
+    <h2>📥 Appendix</h2>
+    <p>Project Files & Supporting Documents</p>
+</div>
+
+<div class="intro-box">
+    <p>
+        This section contains all supporting documents developed throughout the project, 
+        including datasets, statistical analysis, sketches, and final reports.
+    </p>
+</div>
+
+<!-- DESCARGABLE FINAL - SIMPLE -->
+<div style="
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-left: 6px solid #49bf9d;
+    padding: 2rem;
+    border-radius: 15px;
+    margin: 4rem 1rem 2rem;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+">
+    <h3 style="color: #49bf9d; margin-bottom: 1rem;">
+        📥 Download Complete Report
+    </h3>
+    <a href="Entregables/assigment1/Análisis estadístico I+D.docx" 
+       download 
+       style="
+        display: inline-flex;
+        align-items: center;
+        gap: 0.8rem;
+        background: linear-gradient(135deg, #49bf9d, #34d399);
+        color: white;
+        padding: 1rem 2rem;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(73, 191, 157, 0.3);
+    "
+       onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 10px 25px rgba(73, 191, 157, 0.4)'"
+       onmouseout="this.style.transform=''; this.style.boxShadow='0 5px 15px rgba(73, 191, 157, 0.3)'">
+        <i class="fas fa-download"></i>
+        Statistical Analysis Report (.docx)
+    </a>
+    <p style="margin-top: 1rem; color: #666; font-size: 0.95rem;">
+        Stage 3 – Complete RStudio analysis + hypothesis testing
+    </p>
+</div>
+</body>
+</html>

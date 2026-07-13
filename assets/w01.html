@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Semana 1 - FabLab</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+
+    <style>
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .image-box img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+
+        .image-box img:hover {
+            transform: scale(1.03);
+        }
+    </style>
+</head>
+
+<body class="is-preload">
+
+<div id="wrapper">
+
+    <!-- Header -->
+    <header id="header">
+        <h1><a href="index.html">FabLab</a></h1>
+        <nav class="links">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="about.html">Sobre Nosotras</a></li>
+                <li><a href="semana1.html">Semana 1</a></li>
+                <li><a href="semana2.html">Semana 2</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main -->
+    <div id="main">
+
+        <article class="post fade-in">
+
+            <header>
+                <div class="title">
+                    <h2>Semana 1</h2>
+                    <p>Introducción y primeros avances</p>
+                </div>
+            </header>
+
+            <p>
+                En esta semana iniciamos con la introducción al proyecto, explorando conceptos básicos de fabricación digital y definiendo los objetivos iniciales.
+            </p>
+
+            <!-- Imagen -->
+            <div class="image-box">
+                <img src="images/semana1.jpg" alt="Semana 1">
+            </div>
+
+            <p>
+                También realizamos nuestras primeras pruebas y nos familiarizamos con las herramientas del FabLab.
+            </p>
+
+            <h3>Aprendizajes</h3>
+            <ul>
+                <li>Conceptos básicos de FabLab</li>
+                <li>Uso de herramientas digitales</li>
+                <li>Trabajo en equipo</li>
+            </ul>
+
+        </article>
+
+    </div>
+
+    <!-- Sidebar -->
+    <section id="sidebar">
+        <section id="intro">
+            <header>
+                <h2>Registro Semanal</h2>
+                <p>Seguimiento de actividades FabLab</p>
+            </header>
+        </section>
+    </section>
+
+</div>
+
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>FABLAB Projects</title>
+
+<style>
+
+/* RESET */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+/* BODY */
+
+body{
+font-family:'Segoe UI',sans-serif;
+background:#f4f9ff;
+color:#333;
+line-height:1.8;
+}
+
+/* NAVBAR */
+
+.navbar{
+background:linear-gradient(135deg,#6bcee7,#8baadb);
+padding:20px 50px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+box-shadow:0 5px 20px rgba(0,0,0,0.15);
+position:relative;
+z-index:1000;
+}
+
+.logo{
+color:white;
+font-size:2rem;
+font-weight:bold;
+letter-spacing:2px;
+}
+
+.nav-links{
+display:flex;
+gap:15px;
+align-items:center;
+}
+
+/* LINKS */
+
+.nav-links a{
+color:white;
+text-decoration:none;
+padding:10px 18px;
+border-radius:10px;
+font-weight:600;
+transition:0.3s;
+}
+
+.nav-links a:hover{
+background:rgba(255,255,255,0.2);
+}
+
+/* DROPDOWN ASSIGNMENTS */
+
+.dropdown{
+position:relative;
+display:inline-block;
+}
+
+.dropdown > a{
+color:white;
+text-decoration:none;
+padding:10px 18px;
+border-radius:10px;
+font-weight:600;
+transition:0.3s;
+display:block;
+}
+
+.dropdown > a:hover{
+background:rgba(255,255,255,0.2);
+}
+
+.dropdown-content{
+display:none;
+position:absolute;
+top:100%;
+left:0;
+background:white;
+min-width:240px;
+border-radius:12px;
+overflow:hidden;
+box-shadow:0 8px 20px rgba(0,0,0,0.15);
+z-index:1000;
+}
+
+.dropdown-content a{
+display:block;
+padding:12px 15px;
+text-decoration:none;
+color:#333 !important;
+background:white;
+font-weight:600;
+}
+
+.dropdown-content a:hover{
+background:#f4f9ff;
+color:#059669 !important;
+}
+
+.dropdown:hover .dropdown-content{
+display:block;
+}
+
+/* HERO */
+
+.hero{
+max-width:1300px;
+margin:auto;
+padding:60px 30px;
+}
+
+.hero-box{
+background:white;
+padding:50px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+text-align:center;
+}
+
+.hero-header{
+width:80%;
+text-align:center;
+padding:40px 30px;
+background:#ecfdf5;
+margin:auto;
+border-radius:20px;
+}
+
+.hero-header img{
+width:220px;
+max-width:100%;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.15);
+margin-bottom:20px;
+}
+
+.hero-box h1{
+font-size:3rem;
+color:#059669;
+margin-bottom:20px;
+}
+
+.hero-box p{
+font-size:1.1rem;
+max-width:850px;
+margin:auto;
+}
+
+/* SECTIONS */
+
+.sections{
+margin-top:50px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:25px;
+align-items:stretch;
+}
+
+.card{
+background:white;
+padding:30px;
+border-radius:18px;
+box-shadow:0 8px 25px rgba(0,0,0,0.1);
+transition:0.3s;
+text-align:center;
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+border:1px solid rgba(5,150,105,0.08);
+}
+
+.card:hover{
+transform:translateY(-8px);
+box-shadow:0 14px 35px rgba(0,0,0,0.15);
+}
+
+.card h2{
+color:#059669;
+margin-bottom:15px;
+font-size:1.6rem;
+}
+
+.card p{
+margin-bottom:25px;
+text-align:justify;
+font-size:1rem;
+}
+
+/* FINAL PROJECT CARD */
+
+.final-project-card{
+background:linear-gradient(145deg,#ffffff,#ecfdf5);
+border:2px solid #10b981;
+position:relative;
+overflow:hidden;
+}
+
+.final-project-card::before{
+content:"FINAL PROJECT";
+position:absolute;
+top:15px;
+right:-42px;
+background:#10b981;
+color:white;
+padding:6px 45px;
+font-size:0.75rem;
+font-weight:bold;
+transform:rotate(45deg);
+letter-spacing:1px;
+}
+
+.final-project-card h2{
+color:#047857;
+}
+
+/* BUTTONS */
+
+.btn{
+display:inline-block;
+padding:12px 20px;
+background:#10b981;
+color:white;
+text-decoration:none;
+border-radius:10px;
+font-weight:bold;
+transition:0.3s;
+border:none;
+cursor:pointer;
+}
+
+.btn:hover{
+background:#059669;
+transform:scale(1.03);
+}
+
+.card-buttons{
+display:flex;
+flex-direction:column;
+gap:12px;
+margin-top:auto;
+}
+
+/* FOOTER */
+
+.footer{
+background:linear-gradient(135deg,#6bcee7,#8baadb);
+color:white;
+text-align:center;
+padding:25px 20px;
+margin-top:20px;
+}
+
+.footer p{
+margin:0;
+font-size:0.95rem;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media(max-width:1000px){
+
+.navbar{
+padding:20px 25px;
+}
+
+.nav-links{
+gap:8px;
+}
+
+.nav-links a,
+.dropdown > a{
+padding:9px 12px;
+}
+
+.hero-header{
+width:95%;
+}
+
+}
+
+@media(max-width:768px){
+
+.navbar{
+flex-direction:column;
+gap:20px;
+padding:20px;
+}
+
+.nav-links{
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.dropdown-content{
+left:50%;
+transform:translateX(-50%);
+}
+
+.hero{
+padding:35px 15px;
+}
+
+.hero-box{
+padding:25px 18px;
+}
+
+.hero-header{
+width:100%;
+padding:30px 20px;
+}
+
+.hero-box h1{
+font-size:2rem;
+}
+
+.hero-box p{
+font-size:1rem;
+}
+
+.sections{
+grid-template-columns:1fr;
+}
+
+.card{
+padding:25px;
+}
+
+}
+
+@media(max-width:480px){
+
+.logo{
+font-size:1.7rem;
+}
+
+.nav-links{
+flex-direction:column;
+width:100%;
+}
+
+.nav-links > a,
+.dropdown,
+.dropdown > a{
+width:100%;
+text-align:center;
+}
+
+.dropdown-content{
+position:relative;
+top:5px;
+width:100%;
+transform:none;
+left:0;
+margin-bottom:10px;
+}
+
+.hero-box h1{
+font-size:1.7rem;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+<div class="logo">
+FABLAB
+</div>
+
+<div class="nav-links">
+
+<a href="index.html">Home</a>
+
+<div class="dropdown">
+
+<a href="#">Assignments ▼</a>
+
+<div class="dropdown-content">
+
+<a href="asigment1.html">📄 Assignment 1</a>
+
+<a href="asigment2.html">🎰 Assignment 2</a>
+
+</div>
+
+</div>
+
+<a href="Practice/p1.html">Prácticas</a>
+
+<a href="EXAMEN_INTERCICLO.html">Exámen Interciclo</a>
+
+<a href="Final_project.html">Final Project</a>
+
+<a href="aboutus.html">About Us</a>
+
+</div>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-box">
+
+<div class="hero-header">
+
+<img src="images/Home/Fab.png"
+alt="FABLAB">
+
+<h1>FABLAB Projects</h1>
+
+<p>
+Welcome to our FABLAB digital portfolio. This website presents the projects,
+assignments and practical activities developed throughout the Digital Fabrication
+course. Each section documents the different stages of the work, from the initial
+idea and planning process to design, manufacturing, electronics, programming,
+assembly and final testing. The purpose of this portfolio is to show the knowledge,
+technical skills and creative solutions developed during the semester.
+</p>
+
+</div>
+
+<!-- CARDS -->
+
+<div class="sections">
+
+<!-- ASSIGNMENTS -->
+
+<div class="card">
+
+<h2>Assignments</h2>
+
+<p>
+This section contains the documentation of the assignments completed throughout
+the course. It includes activities related to electronic circuit design, PCB
+manufacturing, Arduino programming, computer-aided design and digital fabrication.
+Each assignment presents the development process, the tools used, the results
+obtained and the knowledge acquired during its completion.
+</p>
+
+<div class="card-buttons">
+
+<a href="asigment1.html" class="btn">
+📄 Assignment 1
+</a>
+
+<a href="asigment2.html" class="btn">
+🎰 Assignment 2 - Electronic Roulette
+</a>
+
+</div>
+
+</div>
+
+<!-- PRACTICES -->
+
+<div class="card">
+
+<h2>Practices</h2>
+
+<p>
+Explore the practical activities carried out during the semester. These exercises
+were developed to reinforce the theoretical concepts studied in class through
+hands-on experience. The section includes the use of fabrication tools, equipment
+operation, manufacturing procedures, assembly processes and technical tests
+performed in the laboratory.
+</p>
+
+<a href="Practice/p1.html" class="btn">
+Open Section
+</a>
+
+</div>
+
+<!-- INTERCICLO -->
+
+<div class="card">
+
+<h2>Interciclo</h2>
+
+<p>
+This section presents the midterm project developed during the first part of the
+course. It includes the planning, design, manufacturing and implementation stages,
+showing how different digital fabrication techniques were combined to solve a
+specific engineering challenge and obtain a functional result.
+</p>
+
+<a href="EXAMEN_INTERCICLO.html" class="btn">
+Open Project
+</a>
+
+</div>
+
+<!-- FINAL PROJECT -->
+
+<div class="card final-project-card">
+
+<h2>Final Project</h2>
+
+<p>
+The Final Project represents the integration of the knowledge and skills acquired
+throughout the entire course. It presents the complete development of an
+intelligent waste sorting bin, beginning with the identification of the problem
+and the generation of ideas. The project also includes mechanical design,
+electronic circuit development, PCB manufacturing, programming, prototype
+assembly, system operation, testing and validation of the final solution.
+</p>
+
+<a href="Final_project.html" class="btn">
+Open Final Project
+</a>
+
+</div>
+
+<!-- MUEBLE IKEA -->
+
+<div class="card">
+
+<h2>Mueble IKEA</h2>
+
+<p>
+This digital furniture project was inspired by the design and assembly principles
+commonly used in IKEA products. The work focused on creating a functional piece
+of furniture that could be manufactured using digital fabrication tools, while
+considering material optimization, ease of assembly, precision cutting and an
+efficient structural design.
+</p>
+
+<a href="Mueble-Ikhea.html" class="btn">
+Open Project
+</a>
+
+</div>
+
+<!-- ABOUT US -->
+
+<div class="card">
+
+<h2>About Us</h2>
+
+<p>
+This section provides information about the members of our team, our academic
+objectives and the responsibilities assumed during the development of the
+different projects. It also highlights the importance of teamwork, communication,
+organization and the application of technical knowledge in the creation of
+innovative digital fabrication solutions.
+</p>
+
+<a href="aboutus.html" class="btn">
+Learn More
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<footer class="footer">
+
+<p>
+FABLAB Projects | Digital Fabrication Portfolio
+</p>
+
+</footer>
+
+</body>
+
+</html>
