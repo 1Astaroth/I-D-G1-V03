@@ -2,6 +2,7 @@
 <html lang="es">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -16,14 +17,14 @@ box-sizing:border-box;
 }
 
 body{
-font-family: Arial, sans-serif;
+font-family:Arial,sans-serif;
 background:#f4f9ff;
 color:#333;
 line-height:1.6;
 }
 
 .navbar{
-background: linear-gradient(135deg,#6bcee7,#8baadb);
+background:linear-gradient(135deg,#6bcee7,#8baadb);
 padding:20px 50px;
 display:flex;
 justify-content:space-between;
@@ -159,6 +160,11 @@ background:#2d9f7e;
 .navbar{
 flex-direction:column;
 gap:15px;
+padding:20px;
+}
+
+.nav-links{
+justify-content:center;
 }
 
 .card-images{
@@ -169,9 +175,18 @@ flex-direction:column;
 width:100%;
 }
 
+.main-container{
+padding:1rem;
+}
+
+.content{
+padding:1rem;
+}
+
 }
 
 </style>
+
 </head>
 
 <body>
@@ -183,25 +198,41 @@ FABLAB
 </div>
 
 <div class="nav-links">
+
 <a href="index.html">Home</a>
+
 <a href="asigment2.html">Assignments</a>
+
 <a href="Practice/p1.html">Practices</a>
+
 <a href="EXAMEN_INTERCICLO.html">Interciclo</a>
+
+<a href="FINAL_PROJECT.html">Final Project</a>
+
 <a href="aboutus.html">About Us</a>
+
 </div>
 
 </nav>
 
 <header id="header">
+
 <h1>🎰 Assignment 2 - Ruleta Electrónica</h1>
+
 </header>
 
 <div class="main-container">
+
 <div class="content">
 
 <div style="text-align:center;margin-bottom:30px;">
-<img src="images/Ruleta/cajalistaconplaca.png"
-style="width:60%;border-radius:15px;">
+
+<img
+src="Ruleta/cajalistaconplaca.png"
+alt="Ruleta electrónica terminada"
+style="width:60%;border-radius:15px;"
+>
+
 </div>
 
 <div class="intro-box">
@@ -214,8 +245,12 @@ fabricación de PCB, programación y desarrollo de una carcasa personalizada med
 
 </div>
 
+<!-- SOCIALIZACIÓN -->
+
 <div class="etapa-header">
+
 <h2>Socialización del Proyecto</h2>
+
 </div>
 
 <div class="cards">
@@ -234,14 +269,21 @@ También se dieron recomendaciones para el diseño de la PCB, el uso de KiCad, s
 y consideraciones sobre el ancho de pistas para evitar problemas durante el grabado.
 </p>
 
-<img src="images/Ruleta/socializacion1.png">
+<img
+src="Ruleta/socializacion1.jpeg"
+alt="Socialización inicial del proyecto"
+>
 
 </div>
 
 </div>
+
+<!-- SIMULACIÓN -->
 
 <div class="etapa-header">
+
 <h2>Simulación en Wokwi</h2>
+
 </div>
 
 <div class="cards">
@@ -259,7 +301,10 @@ siete LEDs, siete resistencias y un pulsador.
 Esto permitió organizar las conexiones y verificar la lógica de funcionamiento antes de fabricar la placa.
 </p>
 
-<img src="images/Ruleta/wokwi1.png">
+<img
+src="Ruleta/wokwi1.png.jpeg"
+alt="Diseño inicial del circuito en Wokwi"
+>
 
 </div>
 
@@ -276,13 +321,21 @@ y el comportamiento de la ruleta electrónica.
 La simulación ayudó a corregir errores de conexión y optimizar el programa antes de pasar al diseño físico.
 </p>
 
-<img src="images/Ruleta/wokwi2.png">
+<img
+src="Ruleta/wokwi2.jpeg"
+alt="Validación del circuito en Wokwi"
+>
 
 </div>
 
 </div>
+
+<!-- KICAD -->
+
 <div class="etapa-header">
+
 <h2>Diseño Electrónico en KiCad</h2>
+
 </div>
 
 <div class="cards">
@@ -302,7 +355,10 @@ Esta etapa permitió generar una representación formal del circuito y verificar
 las conexiones estuvieran correctamente definidas antes de diseñar la placa.
 </p>
 
-<img src="images/Ruleta/kicad1.png">
+<img
+src="Ruleta/kicad1.jpeg"
+alt="Esquemático electrónico desarrollado en KiCad"
+>
 
 </div>
 
@@ -321,14 +377,21 @@ También se diseñaron las pistas de conexión respetando las recomendaciones in
 la clase para facilitar el proceso de fabricación y evitar cortocircuitos.
 </p>
 
-<img src="images/Ruleta/kicad2.png">
+<img
+src="Ruleta/kicad2.jpeg"
+alt="Diseño de la placa PCB en KiCad"
+>
 
 </div>
 
 </div>
+
+<!-- VISUALIZACIÓN 3D -->
 
 <div class="etapa-header">
+
 <h2>Visualización 3D</h2>
+
 </div>
 
 <div class="cards">
@@ -347,14 +410,21 @@ Esta revisión permitió observar una representación cercana al resultado final
 correcciones antes de fabricar la placa física.
 </p>
 
-<img src="images/Ruleta/kicad3.png">
+<img
+src="Ruleta/kicad3.jpeg"
+alt="Visualización tridimensional de la placa"
+>
 
 </div>
 
 </div>
+
+<!-- FABRICACIÓN PCB -->
 
 <div class="etapa-header">
+
 <h2>Fabricación de la PCB</h2>
+
 </div>
 
 <div class="cards">
@@ -368,7 +438,10 @@ La forma de la ruleta fue preparada utilizando herramientas de fabricación digi
 Se realizó el corte de la geometría que serviría como base para la placa electrónica.
 </p>
 
-<img src="images/Ruleta/cortadoralaser.png">
+<img
+src="Ruleta/cortadoralaser.jpeg"
+alt="Corte de la geometría de la placa"
+>
 
 </div>
 
@@ -381,7 +454,49 @@ Una vez generado el archivo de fabricación, se procedió al grabado de las pist
 la placa de cobre. Este proceso permitió transferir el diseño realizado en KiCad al material físico.
 </p>
 
-<img src="images/Ruleta/grabacionplaca.png">
+<img
+src="Ruleta/grabacionplaca.jpeg"
+alt="Grabado de las pistas sobre la placa"
+>
+
+</div>
+
+<div class="card">
+
+<h3>🦺 Seguridad</h3>
+
+<p>
+Durante la fabricación de la PCB se aplicaron medidas de seguridad para proteger a los estudiantes
+y garantizar el correcto uso de las herramientas del laboratorio.
+</p>
+
+<ul style="
+text-align:left;
+padding-left:20px;
+line-height:1.8;
+margin-top:10px;
+">
+
+<li>Uso obligatorio de mandil.</li>
+
+<li>Gafas de protección durante el perforado.</li>
+
+<li>Uso de guantes para manipular materiales.</li>
+
+<li>Verificación previa de máquinas y herramientas.</li>
+
+<li>Área de trabajo limpia y ordenada.</li>
+
+<li>Manipulación cuidadosa de elementos cortantes.</li>
+
+<li>Seguimiento de las indicaciones del docente.</li>
+
+</ul>
+
+<img
+src="Ruleta/seguridad.jpeg"
+alt="Medidas de seguridad durante la fabricación"
+>
 
 </div>
 
@@ -398,7 +513,10 @@ En algunos sectores fue necesario retirar pequeñas zonas de cobre utilizando he
 Esta revisión permitió garantizar el correcto aislamiento entre pistas antes de soldar componentes.
 </p>
 
-<img src="images/Ruleta/continuidad.png">
+<img
+src="Ruleta/continuidad.jpeg"
+alt="Pruebas de continuidad de la placa"
+>
 
 </div>
 
@@ -411,13 +529,21 @@ Finalmente se realizaron los agujeros necesarios para el montaje de los componen
 El taladrado permitió preparar la placa para la siguiente etapa de ensamblaje.
 </p>
 
-<img src="images/Ruleta/taladro.png">
+<img
+src="Ruleta/taladro.jpeg"
+alt="Perforación de la placa electrónica"
+>
 
 </div>
 
 </div>
+
+<!-- ENSAMBLAJE ELECTRÓNICO -->
+
 <div class="etapa-header">
+
 <h2>Ensamblaje Electrónico</h2>
+
 </div>
 
 <div class="cards">
@@ -436,7 +562,10 @@ Durante esta etapa se verificó constantemente la orientación de los componente
 errores que pudieran afectar el funcionamiento del circuito.
 </p>
 
-<img src="images/Ruleta/placa.png">
+<img
+src="Ruleta/placa.jpeg"
+alt="Montaje de los componentes electrónicos"
+>
 
 </div>
 
@@ -453,14 +582,21 @@ las conexiones estuvieran correctamente realizadas y que la alimentación llegar
 Estas verificaciones permitieron asegurar que la placa estuviera lista para la programación final.
 </p>
 
-<img src="images/Ruleta/placa.png">
+<img
+src="Ruleta/placa.jpeg"
+alt="Integración del sistema electrónico"
+>
 
 </div>
 
 </div>
+
+<!-- PROGRAMACIÓN -->
 
 <div class="etapa-header">
+
 <h2>Programación Arduino</h2>
+
 </div>
 
 <div class="cards">
@@ -479,7 +615,10 @@ El código fue desarrollado de forma progresiva, realizando pruebas constantes p
 cada función implementada.
 </p>
 
-<img src="images/Ruleta/clasearduino.png">
+<img
+src="Ruleta/clasearduino.jpeg"
+alt="Desarrollo del código para Arduino"
+>
 
 </div>
 
@@ -497,7 +636,10 @@ La velocidad disminuye gradualmente hasta detenerse en una posición aleatoria,
 dejando encendido un único LED como resultado final.
 </p>
 
-<img src="images/Ruleta/arduino.png">
+<img
+src="Ruleta/arduino.jpeg"
+alt="Funcionamiento del sistema con Arduino"
+>
 
 </div>
 
@@ -514,14 +656,21 @@ del sistema y comprobar que cada activación generara resultados aleatorios.
 Estas pruebas permitieron confirmar el correcto funcionamiento del proyecto completo.
 </p>
 
-<img src="images/Ruleta/arduino.png">
+<img
+src="Ruleta/arduino.jpeg"
+alt="Pruebas finales de la ruleta electrónica"
+>
 
 </div>
 
 </div>
+
+<!-- DISEÑO DEL CASE -->
 
 <div class="etapa-header">
+
 <h2>Diseño e Impresión del Case</h2>
+
 </div>
 
 <div class="cards">
@@ -539,7 +688,10 @@ El modelo fue desarrollado considerando la forma de engranaje utilizada en la PC
 También se incorporó un espacio para la tapa transparente y para los elementos electrónicos internos.
 </p>
 
-<img src="images/Ruleta/diseñocajaenfusion.png">
+<img
+src="Ruleta/diseñocajaenfusion.jpeg"
+alt="Diseño de la caja en Fusion 360"
+>
 
 </div>
 
@@ -554,9 +706,15 @@ Posteriormente se realizó el corte de la tapa de acrílico que cubriría la par
 
 <div class="card-images">
 
-<img src="images/Ruleta/impresioncaja1.png">
+<img
+src="Ruleta/impresioncaja1.jpeg"
+alt="Impresión tridimensional de la caja"
+>
 
-<img src="images/Ruleta/cortetapa.png">
+<img
+src="Ruleta/cortetapa.jpeg"
+alt="Corte de la tapa de acrílico"
+>
 
 </div>
 
@@ -575,13 +733,21 @@ Esto permitió obtener un producto más seguro, resistente y visualmente atracti
 El resultado fue una ruleta electrónica completamente funcional y lista para su utilización.
 </p>
 
-<img src="images/Ruleta/cajalistaconplaca.png">
+<img
+src="Ruleta/cajalistaconplaca.png"
+alt="Ruleta electrónica integrada en su carcasa"
+>
 
 </div>
 
 </div>
+
+<!-- RESULTADOS -->
+
 <div class="etapa-header">
+
 <h2>Resultados del Proyecto</h2>
+
 </div>
 
 <div class="cards">
@@ -629,8 +795,12 @@ La integración entre electrónica, programación y fabricación digital permiti
 
 </div>
 
+<!-- APRENDIZAJES -->
+
 <div class="etapa-header">
+
 <h2>Aprendizajes Obtenidos</h2>
+
 </div>
 
 <div class="cards">
@@ -677,8 +847,12 @@ Se aplicaron procesos de grabado de PCB, perforación, impresión 3D y corte de 
 
 </div>
 
+<!-- CONCLUSIÓN -->
+
 <div class="etapa-header">
+
 <h2>Conclusión</h2>
+
 </div>
 
 <div class="intro-box">
@@ -688,6 +862,8 @@ El proyecto permitió integrar distintas áreas de la fabricación digital en un
 Durante el desarrollo se aplicaron conocimientos de diseño electrónico, programación, manufactura y modelado 3D.
 </p>
 
+<br>
+
 <p>
 La ruleta electrónica final cumple con los objetivos planteados inicialmente, demostrando la importancia
 de la simulación previa, el diseño adecuado de la PCB y la validación constante durante cada etapa del proceso.
@@ -695,8 +871,12 @@ de la simulación previa, el diseño adecuado de la PCB y la validación constan
 
 </div>
 
+<!-- DESCARGABLES -->
+
 <div class="etapa-header">
+
 <h2>Descargables</h2>
+
 </div>
 
 <div class="download-box">
@@ -707,26 +887,36 @@ de la simulación previa, el diseño adecuado de la PCB y la validación constan
 A continuación se incluyen los archivos desarrollados durante la realización del proyecto.
 </p>
 
-<a href="Assignment/assignment2_descargables/">
+<a href="assigment/assigment2_descargables/Ruleta.kicad2_pcb.kicad_pcb">
+
 📁 Proyecto KiCad
+
 </a>
 
-<a href="Assignment/assignment2_descargables/">
+<a href="assigment/assigment2_descargables/Ruleta.kicad_sch">
+
 💻 Código Arduino
+
 </a>
 
-<a href="Assignment/assignment2_descargables/">
+<a href="assigment/assigment2_descargables/placaPCB.png">
+
 🖨️ Archivos STL
+
 </a>
 
-<a href="Assignment/assignment2_descargables/">
+<a href="assigment/assigment2_descargables/diseno_case.f3d">
+
 📦 Diseño del Case
+
 </a>
 
 </div>
 
 </div>
+
 </div>
 
 </body>
+
 </html>
